@@ -1,0 +1,11 @@
+<html>
+   <head>
+      <title name='title' id='title'> one page </title>
+   <head>
+   <body>
+      <script>
+          echo(document.getElementByName('title').value);
+      </script>
+      <h2> done done </h2>
+   </body>
+</html>

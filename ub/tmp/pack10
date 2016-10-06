@@ -1,0 +1,8 @@
+// pack10
+include_once 'dbget.php'; // dbh is global
+include_once '../plib/unpack.php';
+include_once '../plib/llogg.php';
+include_once '../plib/ixxMS.PHP';
+include_once '../ulib/dbc.PHP';
+include_once '../plib/Redirect.php';
+

@@ -1,0 +1,13 @@
+<?php
+// file ufuse Utility File Use
+// fn fuse(name)
+include_once 'dbget.php'; // dbh is global
+function fuse($name)
+{
+  $dbh = getDbh();
+  $ans = dbgetdb($name,$dbh);
+  return($ans);
+} // fuse    
+
+?>
+

@@ -1,0 +1,19 @@
+main contains
+-- logon.html
+-- logon.php
+-- doc.php
+
+plib contains all dbLock utilities (not the property of the end user) like:
+-- ufuse
+
+lib contains all user spacific utilities like:
+-- verifyUID
+-- verifySID
+-- getGp
+
+
+src contains all source code installed to database
+dba contains all database routines. 
+-- can we execute from here? or would we need to copy into utmp to use; deleting after?
+src is reachable by FTP only
+dba is reachable by FTP only

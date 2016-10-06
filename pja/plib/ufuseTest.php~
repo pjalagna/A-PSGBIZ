@@ -1,0 +1,8 @@
+<?php
+// file ufuse Utility File Use
+// fn fuse(name)
+include_once 'ufuse.php'; // dbh is global
+print(fuse("fox"));
+
+?>
+

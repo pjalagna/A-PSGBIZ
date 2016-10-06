@@ -1,0 +1,13 @@
+<?php
+// file logg
+// prints if trace=on
+function log($msg,$Pa,$Px)
+{
+   $g = getPAPX('trace',$Pa,$Px);
+   if ($g == 'on')
+   {
+     print($msg);
+   } // endif
+} // log
+?>
+

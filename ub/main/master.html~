@@ -1,0 +1,19 @@
+<html>
+   <head>
+      <title> Master Page </title>
+   </head>
+   <body>
+      <table name='tmb' border='3'>
+        <tr><td><div name='banner'> banner here </div></td></tr>
+      </table>
+      <table name='tmwk' border='3'>
+        <tr>
+           <td><div name='toc'> toc here </div></td>
+           <td><div name='wkarea'> work area here </div></td>
+        </tr>
+      </table>
+      <table name='tmf' border='3'>
+        <tr><td><div name='footer'> footer here </div></td></tr>
+      </table>
+   </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+   <head>
+      <title> My Monday </title>
+   </head>
+   <body>
+      <form name='f1' id='f1' method='GET'>
+      <input type='hidden' name='mvcStatus' id='mvcStatus' />
+      <input type='hidden' name='page' id='page' />
+      <table>
+        <tr><td>Member ID</td>
+            <td><input type='text' name='memID' id='memID'></input> </td>
+        </tr>
+        <tr><td>Meeting Date</td>
+            <td><input type='text' name='MondayDT' id='MondayDT'></input> </td>
+        </tr>
+        </tr>
+        <tr><td> </td>
+            <td>
+               <input type='submit' name='b1' id='b1' value='ProcessForm' 
+onclick="document.getElementById('mvcStatus').value = 'Proc1.html'; document.getElementById('page').value = 'MyMonday4';" >
+               </input> 
+
+            </td>
+        </tr>
+      </table>
+      </form>
+   </body>
+</html>

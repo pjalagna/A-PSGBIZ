@@ -1,0 +1,16 @@
+<?php
+// login2
+fuse('verifyUID');
+if (UIDOK(getPAPX('una'),getPAPX('pwd')) == 'no')
+{
+    goto('login1')
+}
+fuse('SIDClass');
+list($Pa,$Px) = writePAPX('SID',genSID());
+fuse(GPClass');
+list($Pa,$Px) = writePAPX('UGP',dbgetGP());
+list($Pa,$Px) = writePAPX('to',getPAPX('UGP'));
+stickNgo();
+exit;
+?>
+

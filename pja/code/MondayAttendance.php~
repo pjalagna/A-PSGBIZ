@@ -1,0 +1,643 @@
+<?php
+function Monday()
+{
+$x = <<< SV
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<TITLE>MondayAttendance</TITLE>
+<META NAME="GENERATOR" CONTENT="OmniForm">
+</HEAD>
+<BODY onLoad="_InitVars(this)" onResize="_RestorePage()" onBeforeUnload="_StorePage()" onUnload="_StorePage()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var ns4 = (document.layers)? true:false;
+var ns6 = (document.getElementById && !document.all)? true:false;
+var ie4 = (document.all)? true:false;
+var _formVars;
+var bInitInProgress = true;
+var bUnloaded = false;
+
+if (!ie4 && !ns4 && !ns6) alert("This form requires Microsoft Internet Explorer 4.0 or later or Netscape Navigator 4.0 or later.");
+
+if (ns4) {
+	var origWidth = window.innerWidth;
+	var origHeight = window.innerHeight;
+}
+
+function _RestorePage() {
+	if (ns4) {
+		if (origWidth != window.innerWidth || origHeight != window.innerHeight) {
+		history.go(0);
+		}
+	}
+	return true;
+}
+
+function _StorePage() {
+	if (bInitInProgress || bUnloaded) return true;
+	var obj;
+	_form = document.IEFORM;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill") {
+			if (ns4) obj = document.layers.NNLAYER.document.layers[_formVars[i].Layer].document.forms[0][i];
+			else obj = _form[i];
+			obj.value = _formVars[i].Value;
+		}
+	}
+	bUnloaded = true;
+	return true;
+}
+
+function _GetObject(name) {
+	var obj;
+	if (ns4) obj = _NNform[_formVars[name].Layer].document.forms[0][name];
+	else obj = _form[name];
+	return(obj);
+}
+
+function _Vars(object) {
+	this.MemberNumber = new _ObjInfo();
+	this.MemberNumber.Type = "Number";
+	this.MemberNumber.bMustFill = true;
+	this.MemberNumber.Layer = "LyrMemberNumber";
+	this.MeetingDate = new _ObjInfo();
+	this.MeetingDate.Type = "Date";
+	this.MeetingDate.Format = _Format_DS2;
+	this.MeetingDate.bMustFill = true;
+	this.MeetingDate.Layer = "LyrMeetingDate";
+}
+
+function _InitVars(object) {
+	bInitInProgress = true;
+	_form = document.IEFORM;
+	_subForm = document.OMNIFORM;
+	if (ie4) document.all.IEFORMLAYER.style.visibility = "visible";
+	if (ns4) _NNform = document.layers.NNLAYER.document.layers;
+	if (ns4) _NNsubForm = document.layers.FORMLAYER.document.forms.OMNIFORM;
+	if (ns4) document.layers.FORMLAYER.visibility = "show";
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox" || _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				_formVars[i].Value = obj.value;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				if (obj.options.selectedIndex == -1) _formVars[i].Value = ""
+				else _formVars[i].Value = obj.options[obj.options.selectedIndex].text;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" ) {
+				if (obj.checked) _formVars[i].Value = _formVars[i].OnValue;
+				else _formVars[i].Value = _formVars[i].OffValue;
+				_SetObjectNumber(_formVars[i]);
+				if (obj.checked) {
+					if (_formVars[i].Group != "") {
+						var group = _formVars[i].Group;
+						_formVars[group].Value = _formVars[i].Value;
+						_formVars[group].Number = _formVars[i].Number;
+						_formVars[group].bNumber = _formVars[i].bNumber;
+						if (ns6) {
+							_UpdateField(group);
+						}
+					}
+				}
+			}
+			if (_formVars[i].ObjectType == "fill" &&  _formVars[i].Value != "") {
+				_formVars[i].bHasData = true;
+				_UpdateField(i);
+			}
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	bInitInProgress = false;
+	return true;
+}
+
+function _OnSubmit(object) {
+	if (bInitInProgress) return true;
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].Group == "") {
+			if (_formVars[i].ObjectType == "group" || _formVars[i].ObjectType == "hidden") {
+				if (!_CheckValidations(i)) return false;
+				object[i].value = _formVars[i].Value;
+			}
+			else {
+				obj = _GetObject(i);
+				if (!_CheckValidations(i)) return false;
+				if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+					if (obj.checked) object[i].value = obj.value;
+					else object[i].value = "";
+				}
+				else if (_formVars[i].ObjectType == "select") {
+					if (obj.options.selectedIndex == -1) object[i].value = ""
+					else object[i].value = obj.options[obj.options.selectedIndex].text;
+				}
+				else object[i].value = obj.value;
+			}
+		}
+	}
+	return true;
+}
+
+function _OnReset(object) {
+	if (bInitInProgress) return true;
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				obj.value = "";
+				_formVars[i].Value = ""
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				obj.options.selectedIndex = 0;
+				_formVars[i].Value = obj.options[0].text;
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+				obj.checked = false;
+				_formVars[i].Value = _formVars[i].OffValue;
+			}
+			_SetObjectNumber(_formVars[i]);
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	return false;
+}
+
+function _ComputeForm(object) {
+	if (bInitInProgress) return true;
+	var name = object.name;
+	var field = name;
+	if(_formVars[name].bCanBeFilled) {
+		if (object.type == "checkbox" || object.type == "radio") {
+			if (object.checked == true) _formVars[name].Value=object.value;
+			else _formVars[name].Value=_formVars[name].OffValue;
+			_SetObjectNumber(_formVars[name]);
+			if (_formVars[name].Group != "") {
+				var group = _formVars[name].Group;
+				_formVars[group].Value = _formVars[name].Value;
+				_formVars[group].Number = _formVars[name].Number;
+				_formVars[group].bNumber = _formVars[name].bNumber;
+				_UpdateField(group);
+				field = group;
+			}
+		}else if (object.type == "select-one") {
+			_formVars[name].Value = object.options[object.options.selectedIndex].text;
+			_SetObjectNumber(_formVars[name]);
+		}else{
+			_formVars[name].Value = object.value;
+			_SetObjectNumber(_formVars[name]);
+			_formVars[name].bSaved = true;
+		}
+		_formVars[field].bHasBeenFilled = true;
+		if(_formVars[field].Value != "") {
+			_formVars[field].bHasData = true;
+		}
+		else {
+			_formVars[field].bHasData = false;
+		}
+		_formVars[field].Update();
+		_formVars[field].bHasBeenFilled = false;
+	}
+	return true;
+}
+
+function _UpdateField(name) {
+	var obj;
+	if (_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio"|| _formVars[name].ObjectType == "select") {
+		obj = _GetObject(name);
+		if (_formVars[name].ObjectType == "fill") {
+			if (!_formVars[name].bHasData) obj.value = "";
+			else if (_formVars[name].bNumber) obj.value = _formVars[name].Format(_formVars[name]);
+			else obj.value = _formVars[name].Value;
+		}
+		else if (_formVars[name].ObjectType == "select") {
+			var index = -1;
+			for (var i=0; i<obj.length; i++) {
+				if (obj.options[i].text == _formVars[name].Value) index = i;
+			}
+			obj.selectedIndex = index;
+		}
+		else if (_formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio") {
+			if (_formVars[name].Value == _formVars[name].OnValue) obj.checked = true;
+			else  obj.checked = false;
+		}
+	}
+	else if (_formVars[name].ObjectType == "group") {
+		for (var i in _formVars) {
+			if (_formVars[i].Group == name) {
+				obj = _GetObject(i);
+				if (_formVars[i].OnValue == _formVars[name].Value) obj.checked = true;
+				else obj.checked = false;
+			}
+		}
+	}
+}
+
+function _GetNumber(string) {
+	var temp=_ConvertNumber(string);
+	if (typeof(temp) != "number") return(0);
+	else return(temp);
+}
+function _SetObjectNumber(object) {
+	var temp=_ConvertNumber(object.Value);
+	if (typeof(temp) != "number") {
+		object.Number = 0;
+		object.bNumber = false;
+	}
+	else {
+		object.Number = temp;
+		object.bNumber = true;
+	}
+}
+function _ConvertNumber(string) {
+	string1=""+string;
+	if (string1 == "") return(0);
+	var stringPart = new Array();
+	_MakeStringParts(string1, stringPart);
+	if (_MatchDateString(stringPart)) return(stringPart.Value);
+	else if (_MatchTimeString(stringPart)) return(stringPart.Value);
+	else if (_MatchNumberString(stringPart)) return(stringPart.Value);
+	else return("");
+}
+function _StringPart() {
+	this.RawType = "";
+	this.LogType = "";
+	this.Offset = "";
+	this.Length = "";
+	this.Value = "";
+}
+function _MakeStringParts(string, stringPart) {
+	var count=0;
+	var parts=0;
+	while (count<string.length) {
+		stringPart[parts] = new _StringPart();
+		stringPart[parts].Offset = count;
+		var length = 0;
+		var rawType = "";
+		var logType = "";
+		while (count<string.length) {
+			if (_IsNumericChar(string.charAt(count))) {
+				if (rawType == "") rawType = "num";
+				else if (rawType == "alpha") break;
+			}
+			else if (_IsAlphaChar(string.charAt(count))) {
+				if (rawType == "") rawType = "alpha";
+				else if (rawType == "num") break;
+			}
+			else break;
+			count++;
+			length++;
+		}
+		if (length>0) {
+			var value = string.substring(stringPart[parts].Offset,count);
+			if (rawType == "alpha") {
+				if (_IsMonthName(value) != -1) logType = "month";
+			}
+			stringPart[parts].Value = value;
+			stringPart[parts].Length = length;
+			stringPart[parts].RawType = rawType;
+		}
+		else {
+			stringPart[parts].Value = string.charAt(count);
+			stringPart[parts].Length = 1;
+			stringPart[parts].RawType = string.charAt(count);
+			if (string.charAt(count) == "$") logType = "cur";
+			count++;
+		}
+		stringPart[parts].LogType = logType;
+		parts++;
+	}
+	stringPart.Length = parts;
+	stringPart.Value = "";
+}
+function _MatchDateString(stringPart) {
+	var month = 0;
+	var day = 0;
+	var year = 0;
+	var bFound = false;
+	if (stringPart.Length == 5 && stringPart[1].Value == stringPart[3].Value && (stringPart[1].Value == '/' || stringPart[1].Value == '-' || stringPart[1].Value == '.') && stringPart[2].Length <= 2) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num" && stringPart[4].RawType == "num") {
+			month = stringPart[0].Value;
+			day = stringPart[2].Value;
+			year = stringPart[4].Value;
+			bFound = true;
+		}
+	}
+	else if (stringPart.Length == 3 && (stringPart[1].Value == '/' || stringPart[1].Value == '-')) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num") {
+			month = stringPart[0].Value;
+			day = 1;
+			year = stringPart[2].Value;
+			bFound = true;
+		}
+	}
+	else {
+		var count=0;
+		while (count<stringPart.Length && !bFound) {
+			if (stringPart[count].LogType == "month") {
+				bFound = true;
+				month = _IsMonthName(stringPart[count].Value) + 1;
+			}
+			count++;
+		}
+		if (bFound) {
+			bFound = false;
+			count=0;
+			while (count<stringPart.Length && !bFound) {
+				if (stringPart[count].RawType == "num") {day = stringPart[count].Value; bFound = true;}
+				count++;
+			}
+			if (bFound) {
+				bFound = false;
+				while (count<stringPart.Length && !bFound) {
+					if (stringPart[count].RawType == "num") {year = stringPart[count].Value; bFound = true;}
+					count++;
+				}
+				if (!bFound && day > 31) {year = day; day = 1; bFound = true;}
+			}
+		}
+	}
+	if (bFound) {
+		if (month*1 < 1 || month*1 > 12 || day*1 < 1 || day*1 > 31) return false;
+		if (year*1 < 30) year = year*1 + 2000;
+		else if (year*1 < 100) year = year*1 + 1900;
+		stringPart.Value = (Date.parse(month + "/" + day + "/" + year)/86400000);
+		return true;
+	}
+	return false;
+}
+function _MonthNamesArray() {
+	this[0]="January";
+	this[1]="February";
+	this[2]="March";
+	this[3]="April";
+	this[4]="May";
+	this[5]="June";
+	this[6]="July";
+	this[7]="August";
+	this[8]="September";
+	this[9]="October";
+	this[10]="November";
+	this[11]="December";
+}
+function _MatchNumberString(stringPart) {
+	var dash = -1;
+	var lparen = -1;
+	var rparen = -1;
+	var dec = -1;
+	var preDec = -1;
+	var postDec = -1;
+	var percent = -1;
+	var length = stringPart.Length;
+	for (var count=0; count<length; count++) {
+		if (stringPart[count].RawType == "-") {if (dash != -1) return false; dash = count;}
+		else if (stringPart[count].RawType == "(") {if (lparen != -1) return false; lparen = count;}
+		else if (stringPart[count].RawType == ")") {if (rparen != -1 || lparen == -1) return false; rparen = count;}
+		else if (stringPart[count].RawType == ".") {dec = count;}
+		else if (stringPart[count].RawType == "num") {
+			if (preDec == -1 && dec == -1) preDec = count;
+			else if (postDec == -1 && dec != -1) postDec = count;
+		}
+		else if (stringPart[count].RawType == "%") {if (percent != -1) return false; percent = count;}
+		else if (stringPart[count].RawType != "," && stringPart[count].RawType != " " && stringPart[count].LogType != "cur") return false;
+	}
+	if (preDec != -1 || postDec != -1) {
+		var preDecNum = "";
+		var postDecNum = "";
+		if (preDec != -1) {
+			if (dec == -1) dec = length;
+			preDecNum = stringPart[preDec].Value;
+			for (count=preDec+1; count<dec; count++) {
+				if (stringPart[count].RawType == "num") preDecNum = "" + preDecNum + stringPart[count].Value;
+			}
+		}
+		if (postDec != -1) {
+			for (count=postDec; count<length; count++) {
+				if (stringPart[count].RawType == "num") postDecNum = "" + postDecNum + stringPart[count].Value;
+			}
+		}
+		var num;
+		if (preDec != -1) num = preDecNum;
+		else num = "0";
+		if (postDec != -1) num = num + "." + postDecNum;
+		if (dash != -1 || (lparen != -1 && rparen != -1)) num = "-" + num;
+		if (percent != -1) num /= 100;
+		stringPart.Value = num*1;
+		return true;
+	}
+}
+function _MatchTimeString(stringPart) {
+	var string;
+	var AmPm = "";
+	var hour;
+	var minute = 0;
+	var second = 0;
+	var length = stringPart.Length;
+	if (stringPart[0].RawType != "num") return false;
+	if (length >= 2) {
+		string = stringPart[length-1].Value.toLowerCase();
+		if (string == "am" || string == "pm") {AmPm = string; length -= 1;}
+		else if (length >= 5 && string == "." && stringPart[length-2].Value.toLowerCase() == "m" && stringPart[length-3].Value.toLowerCase() == ".") {
+			if (stringPart[length-4].Value.toLowerCase() == "a") {AmPm = "am"; length -= 4;}
+			else if (stringPart[length-4].Value.toLowerCase() == "p") {AmPm = "pm"; length -= 4;}
+		}
+	}
+	hour = stringPart[0].Value*1;
+	if (hour == 12 && AmPm == "am") hour = 0;
+	else if (hour != 12 && AmPm == "pm") hour += 12;
+	if (hour < 0 || hour >= 24) return false;
+	if ((length == 1 || (length == 2 && stringPart[1].Value == " ")) && AmPm != "") {}
+	else if (length >= 3 && stringPart[1].Value == ":" && stringPart[2].RawType == "num") {
+		if (length == 4 && stringPart[3].Value != " ") return false;
+		if (length >= 5 && (stringPart[3].Value != ":" || stringPart[4].RawType != "num")) return false;
+		if (length == 6 && stringPart[5].Value != " ") return false;
+		minute = stringPart[2].Value*1;
+		if (minute < 0 || minute >= 60) return false;
+		if (length >= 5) {
+			second = stringPart[4].Value*1;
+			if (second < 0 || second >= 60) return false;
+		}
+	}
+	else return false;
+	stringPart.Value = (((((hour*60)+minute)*60)+second)/86400);
+	return true;
+}
+function _IsNumericChar(string) {
+	if (string.charAt(0) >= '0' && string.charAt(0) <= '9') return true;
+	return false;
+}
+function _IsAlphaChar(string) {
+	var char1 = string.charAt(0);
+	if ((char1 >= 'A' && char1 <= 'Z')||(char1 >= 'a' && char1 <= 'z')) return true;
+	else if (char1 == '\83' || char1 == '\8A' || char1 == '\8C' || char1 == '\9A' || char1 == '\9C' || char1 == '\9F') return true;
+	else if (char1 > '\C0' && char1 != '\D7' && char1 != '\F7') return true;
+	return false;
+}
+function _IsMonthName(string) {
+	var string1 = string.toLowerCase();
+	var month = -1;
+	var monthNames = new _MonthNamesArray();
+	for (var count=0; count<12 && month==-1; count++) {
+		if (monthNames[count].toLowerCase() == string1) month = count;
+	}
+	return(month);
+}
+function _GetString(number) {
+	return(""+number);
+}
+function _ObjInfo() {
+	this.bHasData = false;
+	this.Number = 0;
+	this.Value = "";
+	this.Type = "G";
+	this.Format = _Format_Gen;
+	this.bHasCalc = false;
+	this.Help = "";
+	this.bMustFill = false;
+	this.bMatchType = false;
+	this.MinValue = "";
+	this.MaxValue = "";
+	this.OnValue = "";
+	this.OffValue = "";
+	this.bCanBeFilled = true;
+	this.bOverride = false;
+	this.bOverridden = false;
+	this.bSaved = true;
+	this.bNumber = false;
+	this.ObjectType = "fill";
+	this.Group = "";
+	this.bHasBeenFilled = false;
+	this.Update = _General_Update;
+	this.NextTab = "";
+	this.PrevTab = "";
+}
+function _General_Update() {
+	return;
+}
+function _CheckValidations(name) {
+	if (!_CheckMustBeFilled(name)) return false;
+	return true;
+}
+function _CheckMustBeFilled(name) {
+	var sError = "The field named \""+name+"\" should be filled in.";
+	var sAllow = "\rAllow it to be empty?";
+	if (_formVars[name].bCanBeFilled && _formVars[name].bMustFill && !_formVars[name].bOverridden) {
+		if (_formVars[name].Value == "") {
+			if (_formVars[name].bOverride) {
+				if (confirm(sError+sAllow)) {
+					_formVars[name].bOverridden = true;
+					return true;
+				}
+			}
+			else{
+				alert(sError);
+			}
+			if(_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "select") {
+				var obj = _GetObject(name);
+				obj.focus();
+				obj.select();
+			}
+			return false;
+		}
+	}
+	return true;
+}
+function _onFocus(object) {
+	if (bInitInProgress) return true;
+	if(_formVars[object.name].bSaved && _formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+		object.value = _formVars[object.name].Value;
+	}
+	_formVars[object.name].bSaved = false;
+	self.status=_formVars[object.name].Help;
+	return true;
+}
+function _onBlur(object) {
+	if (bInitInProgress || bUnloaded) return true;
+	if (object.value == _formVars[object.name].Value || _formVars[object.name].bSaved == true) {
+		if(_formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+			if (_formVars[object.name].bNumber) object.value = _formVars[object.name].Format(_formVars[object.name]);
+		}
+		_formVars[object.name].bSaved = true;
+	}
+	if (_formVars[object.name].Help != "") self.status="";
+	return true;
+}
+function _Format_Gen(object) {
+	return(object.Value);
+}
+function _Format_NG(object) {
+	return("" + object.Number);
+}
+function _Format_DS2(object) {
+	var tempDate = new Date(2000,1,1);
+	var offset = 1900;
+	if (tempDate.getYear() == 2000) offset = 0;
+	tempDate.setTime(object.Number * 86400000);
+	var year = tempDate.getYear();
+	if (year < 100 || offset == 1900) year += 1900;
+	var month = tempDate.getMonth()+1;
+	var day = tempDate.getDate();
+	var century = Math.floor(year/100);
+	if (century == 0) century = 19;
+	year = year % 100;
+	if (year <= 9) year = "0" + year;
+	return(month + "/" + day + "/" + century + year);
+}
+// -->
+</SCRIPT>
+&nbsp<BR>
+<DIV ID="IELAYER" style="visibility:show;">
+<LAYER ID=IELAYER visibility=hide;>
+<FORM NAME="IEFORM" action='saveForm.php" method='get'>
+<DIV ID="Lyr1" style="position:absolute; left:0.07in; top:0.03in; width:1.39in; height:0.25in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.06in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Monday Attendance</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="MemberNumber" SIZE=19 TABINDEX="1" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.27in; top:0.53in; width:1.61in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr2" style="position:absolute; left:0.04in; top:0.48in; width:1.34in; height:0.23in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.04in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Member Number</FONT></DIV>
+<DIV ID="Lyr3" style="position:absolute; left:0.06in; top:0.95in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Meeting Date</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="MeetingDate" SIZE=12 TABINDEX="2" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.28in; top:1.08in; width:1.01in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+</FORM>
+</LAYER>
+</DIV>
+<DIV ID="NNLAYER" style="visibility:hidden">
+<LAYER ID=NNLAYER>
+<LAYER left=1 top=7 width=138 height=23>
+<DIV ID="Lyr4" style="position:absolute; left:0; top:0; width:138px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Monday Attendance</FONT></P></DIV></LAYER>
+<LAYER ID=LyrMemberNumber left=120 top=43 width=153 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MemberNumber" SIZE=13 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=0 top=48 width=133 height=23>
+<DIV ID="Lyr5" style="position:absolute; left:0; top:0; width:133px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Member Number</FONT></P></DIV></LAYER>
+<LAYER left=0 top=95 width=102 height=24>
+<DIV ID="Lyr6" style="position:absolute; left:0; top:0; width:102px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Meeting Date</FONT></P></DIV></LAYER>
+<LAYER ID=LyrMeetingDate left=121 top=96 width=95 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MeetingDate" SIZE=8 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+</LAYER>
+</DIV>
+<DIV ID="IEFORMLAYER" style="position:absolute; left:0.5in; top:1.70in; visibility:visible;">
+<LAYER ID=FORMLAYER left=48 top=162 visibility=hide>
+<FORM METHOD="GET" ACTION="saveForm.php" NAME="OMNIFORM" onSubmit="return _OnSubmit(this)" OnReset="return _OnReset(this)">
+<INPUT TYPE="HIDDEN" NAME="MemberNumber">
+<INPUT TYPE="HIDDEN" NAME="MeetingDate">
+<P><INPUT TYPE="SUBMIT" VALUE="Submit Form" TABINDEX="3">
+<INPUT TYPE="RESET" VALUE="Clear Form" TABINDEX="4">
+</FORM>
+</LAYER>
+</DIV>
+
+</BODY>
+</HTML>
+SV
+;
+return($x);
+}

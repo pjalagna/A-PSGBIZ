@@ -1,0 +1,4 @@
+[AUTOFILLIST]
+"Yes"
+"No"
+" I do not wish to disclose"

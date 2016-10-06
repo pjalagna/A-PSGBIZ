@@ -1,0 +1,35 @@
+<?php
+// file listdb test
+// 
+include_once '../plib/ufuse.php'; // dbh is global
+include_once '../plib/llogg.php';
+
+function listdb($dbh, $element, $sf)
+{
+  $lx = seekTCVR($dbh,'lov',$sf,'',''); // [v] // in production use get<SF>
+  logg('lx count=(' . count($lx) . ")" );
+  $out = '<select name=' . $element . ">";
+  foreach ($lx as $ii)
+  { 
+    $oo = seekTCVR($dbh,'lov',$sf,'',$ii[0]) ;
+    $out .= "<br /><option> " . $oo[0][0] . "</option>";
+  } // for ii
+  $out .= "<br /></select>";
+  return($out);
+} // listdb
+// test
+$mock = listdb($dbh,'titles', 'title');
+$ping = <<< FD
+<html> 
+  <head><title> listdb test </title> </head>
+  <body>
+     <table border='3'>
+       <tr> <td> $mock </td> </tr>
+     </table>
+  </body>
+</html>
+FD
+;
+print($ping);
+?>
+

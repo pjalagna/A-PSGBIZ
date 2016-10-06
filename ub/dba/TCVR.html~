@@ -1,0 +1,16 @@
+
+<html>
+    <head> <title> TCVR </title> </head>
+    <body>
+    <form name='f1' id='f1' method='POST' action='TCVR.PHP'>
+       T <textarea name='T' id="T" cols='20' rows='20' ></textarea> 
+      C <textarea name='C' id="C" cols='20' rows='20' ></textarea> 
+       V <textarea name='V' id="V" cols='20' rows='20' ></textarea> 
+        R <textarea name='R' id="R" cols='20' rows='20' ></textarea> <br />
+       <input type="submit" name='cmd' value="read"  />
+       <input type="submit" name='cmd' value="Write"  />
+    </form>
+        <div name='sho' id='sho'> </div>
+    </body>
+</html>
+

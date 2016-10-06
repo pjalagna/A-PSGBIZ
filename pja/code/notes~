@@ -1,0 +1,16 @@
+/* 9/1/2016
+- security
+-- use fuse to obviate true name and location of php files
+---- fuse(name) --> dbhold(name) === include 'truename and location'
+-- use php envelope to hold html forms
+-- all parameters passed via database EXCEPT (SID, to, back, {msg})
+--- to is url of receiving page
+--- msg is any {optional} error message sent
+--- back is url to goto after process OR on error (eg becomes 'to')
+
+- tests
+- larry's forms will not pass parameters when enveloped in a php form
+-- simple forms will pass parameters
+IE still need simple wysiwyg editor
+
+9/1/2016 */

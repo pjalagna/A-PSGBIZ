@@ -1,0 +1,16 @@
+<?php
+// file errorRead.php ({error}, back)
+//
+//-- display message on submit goto url(back)
+//
+print('<h1> ' . $_GET['error'] . ' </h1>');
+$x = <<< DD
+<h2> 
+<form method="GET" action="$_GET['back']" >
+          <input type="submit" value="Ready" />
+     </form>
+</h2>
+DD
+;
+print($x);
+?>

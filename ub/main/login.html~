@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title> PSG Login </title>
+      <!-- login 1 -->
+<!-- hide scripts
+<script>
+function required(fi)
+{
+alert ("required stump at " + fi );
+// if not met change hidden to no for l2 processing
+} // required
+
+function a2bi()
+{
+alert("here at a2b");
+document.getElementById('upwd').value = 'stumpped out';
+} // a2bi stump
+</script>
+-->
+   </head>
+   <body>
+      <form name='f1' id='f1' method='POST' action='login.php'> 
+          <input type='hidden' name='rqd' value='ok'></input>
+          <table border='3'>
+             <tr><td>*Name:</td><td><input type='text' name='uname' id='uname' onblur=required("name") /> </td>
+             </tr>
+             <tr><td>*Password:</td><td><input type='password' name='upwd' id='upwd' /> </td>
+             </tr>
+             <tr><td><input type='submit' name='mvcStatus' value='processLogin' onclick=a2bi() /> </td> </tr> 
+          </table>
+      </form>
+   </body>
+</html>

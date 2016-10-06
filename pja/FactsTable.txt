@@ -1,0 +1,66 @@
+MariaDB [test]> desc FACT;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| RecIX       | varchar(15)  | NO   | PRI | NULL    |       |
+| Agree       | varchar(3)   | YES  |     | NULL    |       |
+| Bdate       | date         | YES  |     | NULL    |       |
+| Ccity       | varchar(80)  | YES  |     | NULL    |       |
+| Cell        | varchar(80)  | YES  |     | NULL    |       |
+| City        | varchar(80)  | YES  |     | NULL    |       |
+| CName       | varchar(80)  | YES  |     | NULL    |       |
+| Comment     | varchar(480) | YES  |     | NULL    |       |
+| Committee   | varchar(80)  | YES  |     | NULL    |       |
+| County      | varchar(80)  | YES  |     | NULL    |       |
+| Cstate      | varchar(80)  | YES  |     | NULL    |       |
+| Czip        | varchar(80)  | YES  |     | NULL    |       |
+| EDate       | varchar(80)  | YES  |     | NULL    |       |
+| email       | varchar(80)  | YES  |     | NULL    |       |
+| Estatus     | varchar(80)  | YES  |     | NULL    |       |
+| EType       | varchar(80)  | YES  |     | NULL    |       |
+| Fname       | varchar(80)  | YES  |     | NULL    |       |
+| FutureJS    | varchar(80)  | YES  |     | NULL    |       |
+| MGrup       | varchar(80)  | YES  |     | NULL    |       |
+| Home        | varchar(80)  | YES  |     | NULL    |       |
+| Hours       | datetime     | YES  |     | NULL    |       |
+| Indcator    | varchar(80)  | YES  |     | NULL    |       |
+| JobTitle    | varchar(80)  | YES  |     | NULL    |       |
+| LandingM    | varchar(80)  | YES  |     | NULL    |       |
+| LCity       | varchar(80)  | YES  |     | NULL    |       |
+| LCName      | varchar(80)  | YES  |     | NULL    |       |
+| Ldate       | varchar(80)  | YES  |     | NULL    |       |
+| LEmployment | varchar(80)  | YES  |     | NULL    |       |
+| LEmpTimeM   | datetime     | YES  |     | NULL    |       |
+| LEmpTimeY   | datetime     | YES  |     | NULL    |       |
+| LJSTimeY    | datetime     | YES  |     | NULL    |       |
+| LName       | varchar(80)  | YES  |     | NULL    |       |
+| LNTitle     | varchar(80)  | YES  |     | NULL    |       |
+| LRemote     | varchar(80)  | YES  |     | NULL    |       |
+| LStaffA     | varchar(80)  | YES  |     | NULL    |       |
+| LState      | varchar(80)  | YES  |     | NULL    |       |
+| Lstatus     | varchar(80)  | YES  |     | NULL    |       |
+| MayWeShare  | varchar(80)  | YES  |     | NULL    |       |
+| Mdate       | datetime     | YES  |     | NULL    |       |
+| MID         | varchar(80)  | YES  |     | NULL    |       |
+| Mname       | varchar(80)  | YES  |     | NULL    |       |
+| Mtype       | varchar(80)  | YES  |     | NULL    |       |
+| NameUseOk   | varchar(80)  | YES  |     | NULL    |       |
+| OptOut      | varchar(80)  | YES  |     | NULL    |       |
+| Other       | varchar(80)  | YES  |     | NULL    |       |
+| Pname       | varchar(80)  | YES  |     | NULL    |       |
+| PrefEmail   | varchar(80)  | YES  |     | NULL    |       |
+| PrefPhone   | varchar(80)  | YES  |     | NULL    |       |
+| Remote      | varchar(80)  | YES  |     | NULL    |       |
+| Role        | varchar(80)  | YES  |     | NULL    |       |
+| Role1       | varchar(80)  | YES  |     | NULL    |       |
+| SDate       | varchar(80)  | YES  |     | NULL    |       |
+| StAdd       | varchar(80)  | YES  |     | NULL    |       |
+| State       | varchar(80)  | YES  |     | NULL    |       |
+| SubCom      | varchar(80)  | YES  |     | NULL    |       |
+| Suite       | varchar(80)  | YES  |     | NULL    |       |
+| Veteran     | varchar(80)  | YES  |     | NULL    |       |
+| WJobTitle   | varchar(80)  | YES  |     | NULL    |       |
+| Zip         | varchar(80)  | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+59 rows in set (0.00 sec)
+

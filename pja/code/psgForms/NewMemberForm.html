@@ -1,0 +1,1022 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<TITLE>NewMemberForm</TITLE>
+<META NAME="GENERATOR" CONTENT="OmniForm">
+</HEAD>
+<BODY onLoad="_InitVars(this)" onResize="_RestorePage()" onBeforeUnload="_StorePage()" onUnload="_StorePage()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var ns4 = (document.layers)? true:false;
+var ns6 = (document.getElementById && !document.all)? true:false;
+var ie4 = (document.all)? true:false;
+var _formVars;
+var bInitInProgress = true;
+var bUnloaded = false;
+
+if (!ie4 && !ns4 && !ns6) alert("This form requires Microsoft Internet Explorer 4.0 or later or Netscape Navigator 4.0 or later.");
+
+if (ns4) {
+	var origWidth = window.innerWidth;
+	var origHeight = window.innerHeight;
+}
+
+function _RestorePage() {
+	if (ns4) {
+		if (origWidth != window.innerWidth || origHeight != window.innerHeight) {
+		history.go(0);
+		}
+	}
+	return true;
+}
+
+function _StorePage() {
+	if (bInitInProgress || bUnloaded) return true;
+	var obj;
+	_form = document.IEFORM;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill") {
+			if (ns4) obj = document.layers.NNLAYER.document.layers[_formVars[i].Layer].document.forms[0][i];
+			else obj = _form[i];
+			obj.value = _formVars[i].Value;
+		}
+	}
+	bUnloaded = true;
+	return true;
+}
+
+function _GetObject(name) {
+	var obj;
+	if (ns4) obj = _NNform[_formVars[name].Layer].document.forms[0][name];
+	else obj = _form[name];
+	return(obj);
+}
+
+function _Vars(object) {
+	this.FName = new _ObjInfo();
+	this.FName.bMustFill = true;
+	this.FName.Layer = "LyrFName";
+	this.MName = new _ObjInfo();
+	this.MName.Layer = "LyrMName";
+	this.LName = new _ObjInfo();
+	this.LName.bMustFill = true;
+	this.LName.Layer = "LyrLName";
+	this.PName = new _ObjInfo();
+	this.PName.bMustFill = true;
+	this.PName.Layer = "LyrPName";
+	this.StAdd = new _ObjInfo();
+	this.StAdd.Type = "Address";
+	this.StAdd.bMustFill = true;
+	this.StAdd.Layer = "LyrStAdd";
+	this.City = new _ObjInfo();
+	this.City.Type = "City";
+	this.City.bMustFill = true;
+	this.City.Layer = "LyrCity";
+	this.State = new _ObjInfo();
+	this.State.Type = "State";
+	this.State.bMustFill = true;
+	this.State.Layer = "LyrState";
+	this.Zip = new _ObjInfo();
+	this.Zip.Type = "Zip Code";
+	this.Zip.bMustFill = true;
+	this.Zip.Layer = "LyrZip";
+	this.Suite = new _ObjInfo();
+	this.Suite.bOverride = true;
+	this.Suite.Layer = "LyrSuite";
+	this.County = new _ObjInfo();
+	this.County.bMustFill = true;
+	this.County.Layer = "LyrCounty";
+	this.eMail = new _ObjInfo();
+	this.eMail.bMustFill = true;
+	this.eMail.Layer = "LyreMail";
+	this.Cell = new _ObjInfo();
+	this.Cell.Type = "Phone Number";
+	this.Cell.Layer = "LyrCell";
+	this.Home = new _ObjInfo();
+	this.Home.Type = "Phone Number";
+	this.Home.Layer = "LyrHome";
+	this.BDate = new _ObjInfo();
+	this.BDate.bMustFill = true;
+	this.BDate.Layer = "LyrBDate";
+	this.JobTitle = new _ObjInfo();
+	this.JobTitle.bOverride = true;
+	this.JobTitle.Layer = "LyrJobTitle";
+	this.CName = new _ObjInfo();
+	this.CName.Layer = "LyrCName";
+	this.WJobTitle = new _ObjInfo();
+	this.WJobTitle.bOverride = true;
+	this.WJobTitle.Layer = "LyrWJobTitle";
+	this.CCity = new _ObjInfo();
+	this.CCity.Type = "City";
+	this.CCity.Layer = "LyrCCity";
+	this.CState = new _ObjInfo();
+	this.CState.Type = "State";
+	this.CState.Layer = "LyrCState";
+	this.CZip = new _ObjInfo();
+	this.CZip.Type = "Zip Code";
+	this.CZip.Layer = "LyrCZip";
+	this.SDate = new _ObjInfo();
+	this.SDate.Layer = "LyrSDate";
+	this.EDate = new _ObjInfo();
+	this.EDate.Layer = "LyrEDate";
+	this.EType = new _ObjInfo();
+	this.EType.bMustFill = true;
+	this.EType.bOverride = true;
+	this.EType.ObjectType = "select";
+	this.EType.Layer = "LyrEType";
+	this.EStatus = new _ObjInfo();
+	this.EStatus.bOverride = true;
+	this.EStatus.ObjectType = "select";
+	this.EStatus.Layer = "LyrEStatus";
+	this.Remote = new _ObjInfo();
+	this.Remote.bOverride = true;
+	this.Remote.ObjectType = "select";
+	this.Remote.Layer = "LyrRemote";
+	this.Agree = new _ObjInfo();
+	this.Agree.bMustFill = true;
+	this.Agree.OnValue = "1";
+	this.Agree.OffValue = "0";
+	this.Agree.ObjectType = "checkbox";
+	this.Agree.Layer = "LyrAgree";
+	this.NameUseOK = new _ObjInfo();
+	this.NameUseOK.bMustFill = true;
+	this.NameUseOK.ObjectType = "select";
+	this.NameUseOK.Layer = "LyrNameUseOK";
+	this.OptOut = new _ObjInfo();
+	this.OptOut.OnValue = "1";
+	this.OptOut.OffValue = "0";
+	this.OptOut.ObjectType = "checkbox";
+	this.OptOut.Layer = "LyrOptOut";
+	this.Veteran = new _ObjInfo();
+	this.Veteran.bMustFill = true;
+	this.Veteran.ObjectType = "select";
+	this.Veteran.Layer = "LyrVeteran";
+	this.MDate = new _ObjInfo();
+	this.MDate.Type = "Date";
+	this.MDate.bOverride = true;
+	this.MDate.Layer = "LyrMDate";
+}
+
+function _InitVars(object) {
+	bInitInProgress = true;
+	_form = document.IEFORM;
+	_subForm = document.OMNIFORM;
+	if (ie4) document.all.IEFORMLAYER.style.visibility = "visible";
+	if (ns4) _NNform = document.layers.NNLAYER.document.layers;
+	if (ns4) _NNsubForm = document.layers.FORMLAYER.document.forms.OMNIFORM;
+	if (ns4) document.layers.FORMLAYER.visibility = "show";
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox" || _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				_formVars[i].Value = obj.value;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				if (obj.options.selectedIndex == -1) _formVars[i].Value = ""
+				else _formVars[i].Value = obj.options[obj.options.selectedIndex].text;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" ) {
+				if (obj.checked) _formVars[i].Value = _formVars[i].OnValue;
+				else _formVars[i].Value = _formVars[i].OffValue;
+				_SetObjectNumber(_formVars[i]);
+				if (obj.checked) {
+					if (_formVars[i].Group != "") {
+						var group = _formVars[i].Group;
+						_formVars[group].Value = _formVars[i].Value;
+						_formVars[group].Number = _formVars[i].Number;
+						_formVars[group].bNumber = _formVars[i].bNumber;
+						if (ns6) {
+							_UpdateField(group);
+						}
+					}
+				}
+			}
+			if (_formVars[i].ObjectType == "fill" &&  _formVars[i].Value != "") {
+				_formVars[i].bHasData = true;
+				_UpdateField(i);
+			}
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	bInitInProgress = false;
+	return true;
+}
+
+function _OnSubmit(object) {
+	if (bInitInProgress) return true;
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].Group == "") {
+			if (_formVars[i].ObjectType == "group" || _formVars[i].ObjectType == "hidden") {
+				if (!_CheckValidations(i)) return false;
+				object[i].value = _formVars[i].Value;
+			}
+			else {
+				obj = _GetObject(i);
+				if (!_CheckValidations(i)) return false;
+				if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+					if (obj.checked) object[i].value = obj.value;
+					else object[i].value = "";
+				}
+				else if (_formVars[i].ObjectType == "select") {
+					if (obj.options.selectedIndex == -1) object[i].value = ""
+					else object[i].value = obj.options[obj.options.selectedIndex].text;
+				}
+				else object[i].value = obj.value;
+			}
+		}
+	}
+	return true;
+}
+
+function _OnReset(object) {
+	if (bInitInProgress) return true;
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				obj.value = "";
+				_formVars[i].Value = ""
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				obj.options.selectedIndex = 0;
+				_formVars[i].Value = obj.options[0].text;
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+				obj.checked = false;
+				_formVars[i].Value = _formVars[i].OffValue;
+			}
+			_SetObjectNumber(_formVars[i]);
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	return false;
+}
+
+function _ComputeForm(object) {
+	if (bInitInProgress) return true;
+	var name = object.name;
+	var field = name;
+	if(_formVars[name].bCanBeFilled) {
+		if (object.type == "checkbox" || object.type == "radio") {
+			if (object.checked == true) _formVars[name].Value=object.value;
+			else _formVars[name].Value=_formVars[name].OffValue;
+			_SetObjectNumber(_formVars[name]);
+			if (_formVars[name].Group != "") {
+				var group = _formVars[name].Group;
+				_formVars[group].Value = _formVars[name].Value;
+				_formVars[group].Number = _formVars[name].Number;
+				_formVars[group].bNumber = _formVars[name].bNumber;
+				_UpdateField(group);
+				field = group;
+			}
+		}else if (object.type == "select-one") {
+			_formVars[name].Value = object.options[object.options.selectedIndex].text;
+			_SetObjectNumber(_formVars[name]);
+		}else{
+			_formVars[name].Value = object.value;
+			_SetObjectNumber(_formVars[name]);
+			_formVars[name].bSaved = true;
+		}
+		_formVars[field].bHasBeenFilled = true;
+		if(_formVars[field].Value != "") {
+			_formVars[field].bHasData = true;
+		}
+		else {
+			_formVars[field].bHasData = false;
+		}
+		_formVars[field].Update();
+		_formVars[field].bHasBeenFilled = false;
+	}
+	return true;
+}
+
+function _UpdateField(name) {
+	var obj;
+	if (_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio"|| _formVars[name].ObjectType == "select") {
+		obj = _GetObject(name);
+		if (_formVars[name].ObjectType == "fill") {
+			if (!_formVars[name].bHasData) obj.value = "";
+			else if (_formVars[name].bNumber) obj.value = _formVars[name].Format(_formVars[name]);
+			else obj.value = _formVars[name].Value;
+		}
+		else if (_formVars[name].ObjectType == "select") {
+			var index = -1;
+			for (var i=0; i<obj.length; i++) {
+				if (obj.options[i].text == _formVars[name].Value) index = i;
+			}
+			obj.selectedIndex = index;
+		}
+		else if (_formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio") {
+			if (_formVars[name].Value == _formVars[name].OnValue) obj.checked = true;
+			else  obj.checked = false;
+		}
+	}
+	else if (_formVars[name].ObjectType == "group") {
+		for (var i in _formVars) {
+			if (_formVars[i].Group == name) {
+				obj = _GetObject(i);
+				if (_formVars[i].OnValue == _formVars[name].Value) obj.checked = true;
+				else obj.checked = false;
+			}
+		}
+	}
+}
+
+function _GetNumber(string) {
+	var temp=_ConvertNumber(string);
+	if (typeof(temp) != "number") return(0);
+	else return(temp);
+}
+function _SetObjectNumber(object) {
+	var temp=_ConvertNumber(object.Value);
+	if (typeof(temp) != "number") {
+		object.Number = 0;
+		object.bNumber = false;
+	}
+	else {
+		object.Number = temp;
+		object.bNumber = true;
+	}
+}
+function _ConvertNumber(string) {
+	string1=""+string;
+	if (string1 == "") return(0);
+	var stringPart = new Array();
+	_MakeStringParts(string1, stringPart);
+	if (_MatchDateString(stringPart)) return(stringPart.Value);
+	else if (_MatchTimeString(stringPart)) return(stringPart.Value);
+	else if (_MatchNumberString(stringPart)) return(stringPart.Value);
+	else return("");
+}
+function _StringPart() {
+	this.RawType = "";
+	this.LogType = "";
+	this.Offset = "";
+	this.Length = "";
+	this.Value = "";
+}
+function _MakeStringParts(string, stringPart) {
+	var count=0;
+	var parts=0;
+	while (count<string.length) {
+		stringPart[parts] = new _StringPart();
+		stringPart[parts].Offset = count;
+		var length = 0;
+		var rawType = "";
+		var logType = "";
+		while (count<string.length) {
+			if (_IsNumericChar(string.charAt(count))) {
+				if (rawType == "") rawType = "num";
+				else if (rawType == "alpha") break;
+			}
+			else if (_IsAlphaChar(string.charAt(count))) {
+				if (rawType == "") rawType = "alpha";
+				else if (rawType == "num") break;
+			}
+			else break;
+			count++;
+			length++;
+		}
+		if (length>0) {
+			var value = string.substring(stringPart[parts].Offset,count);
+			if (rawType == "alpha") {
+				if (_IsMonthName(value) != -1) logType = "month";
+			}
+			stringPart[parts].Value = value;
+			stringPart[parts].Length = length;
+			stringPart[parts].RawType = rawType;
+		}
+		else {
+			stringPart[parts].Value = string.charAt(count);
+			stringPart[parts].Length = 1;
+			stringPart[parts].RawType = string.charAt(count);
+			if (string.charAt(count) == "$") logType = "cur";
+			count++;
+		}
+		stringPart[parts].LogType = logType;
+		parts++;
+	}
+	stringPart.Length = parts;
+	stringPart.Value = "";
+}
+function _MatchDateString(stringPart) {
+	var month = 0;
+	var day = 0;
+	var year = 0;
+	var bFound = false;
+	if (stringPart.Length == 5 && stringPart[1].Value == stringPart[3].Value && (stringPart[1].Value == '/' || stringPart[1].Value == '-' || stringPart[1].Value == '.') && stringPart[2].Length <= 2) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num" && stringPart[4].RawType == "num") {
+			month = stringPart[0].Value;
+			day = stringPart[2].Value;
+			year = stringPart[4].Value;
+			bFound = true;
+		}
+	}
+	else if (stringPart.Length == 3 && (stringPart[1].Value == '/' || stringPart[1].Value == '-')) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num") {
+			month = stringPart[0].Value;
+			day = 1;
+			year = stringPart[2].Value;
+			bFound = true;
+		}
+	}
+	else {
+		var count=0;
+		while (count<stringPart.Length && !bFound) {
+			if (stringPart[count].LogType == "month") {
+				bFound = true;
+				month = _IsMonthName(stringPart[count].Value) + 1;
+			}
+			count++;
+		}
+		if (bFound) {
+			bFound = false;
+			count=0;
+			while (count<stringPart.Length && !bFound) {
+				if (stringPart[count].RawType == "num") {day = stringPart[count].Value; bFound = true;}
+				count++;
+			}
+			if (bFound) {
+				bFound = false;
+				while (count<stringPart.Length && !bFound) {
+					if (stringPart[count].RawType == "num") {year = stringPart[count].Value; bFound = true;}
+					count++;
+				}
+				if (!bFound && day > 31) {year = day; day = 1; bFound = true;}
+			}
+		}
+	}
+	if (bFound) {
+		if (month*1 < 1 || month*1 > 12 || day*1 < 1 || day*1 > 31) return false;
+		if (year*1 < 30) year = year*1 + 2000;
+		else if (year*1 < 100) year = year*1 + 1900;
+		stringPart.Value = (Date.parse(month + "/" + day + "/" + year)/86400000);
+		return true;
+	}
+	return false;
+}
+function _MonthNamesArray() {
+	this[0]="January";
+	this[1]="February";
+	this[2]="March";
+	this[3]="April";
+	this[4]="May";
+	this[5]="June";
+	this[6]="July";
+	this[7]="August";
+	this[8]="September";
+	this[9]="October";
+	this[10]="November";
+	this[11]="December";
+}
+function _MatchNumberString(stringPart) {
+	var dash = -1;
+	var lparen = -1;
+	var rparen = -1;
+	var dec = -1;
+	var preDec = -1;
+	var postDec = -1;
+	var percent = -1;
+	var length = stringPart.Length;
+	for (var count=0; count<length; count++) {
+		if (stringPart[count].RawType == "-") {if (dash != -1) return false; dash = count;}
+		else if (stringPart[count].RawType == "(") {if (lparen != -1) return false; lparen = count;}
+		else if (stringPart[count].RawType == ")") {if (rparen != -1 || lparen == -1) return false; rparen = count;}
+		else if (stringPart[count].RawType == ".") {dec = count;}
+		else if (stringPart[count].RawType == "num") {
+			if (preDec == -1 && dec == -1) preDec = count;
+			else if (postDec == -1 && dec != -1) postDec = count;
+		}
+		else if (stringPart[count].RawType == "%") {if (percent != -1) return false; percent = count;}
+		else if (stringPart[count].RawType != "," && stringPart[count].RawType != " " && stringPart[count].LogType != "cur") return false;
+	}
+	if (preDec != -1 || postDec != -1) {
+		var preDecNum = "";
+		var postDecNum = "";
+		if (preDec != -1) {
+			if (dec == -1) dec = length;
+			preDecNum = stringPart[preDec].Value;
+			for (count=preDec+1; count<dec; count++) {
+				if (stringPart[count].RawType == "num") preDecNum = "" + preDecNum + stringPart[count].Value;
+			}
+		}
+		if (postDec != -1) {
+			for (count=postDec; count<length; count++) {
+				if (stringPart[count].RawType == "num") postDecNum = "" + postDecNum + stringPart[count].Value;
+			}
+		}
+		var num;
+		if (preDec != -1) num = preDecNum;
+		else num = "0";
+		if (postDec != -1) num = num + "." + postDecNum;
+		if (dash != -1 || (lparen != -1 && rparen != -1)) num = "-" + num;
+		if (percent != -1) num /= 100;
+		stringPart.Value = num*1;
+		return true;
+	}
+}
+function _MatchTimeString(stringPart) {
+	var string;
+	var AmPm = "";
+	var hour;
+	var minute = 0;
+	var second = 0;
+	var length = stringPart.Length;
+	if (stringPart[0].RawType != "num") return false;
+	if (length >= 2) {
+		string = stringPart[length-1].Value.toLowerCase();
+		if (string == "am" || string == "pm") {AmPm = string; length -= 1;}
+		else if (length >= 5 && string == "." && stringPart[length-2].Value.toLowerCase() == "m" && stringPart[length-3].Value.toLowerCase() == ".") {
+			if (stringPart[length-4].Value.toLowerCase() == "a") {AmPm = "am"; length -= 4;}
+			else if (stringPart[length-4].Value.toLowerCase() == "p") {AmPm = "pm"; length -= 4;}
+		}
+	}
+	hour = stringPart[0].Value*1;
+	if (hour == 12 && AmPm == "am") hour = 0;
+	else if (hour != 12 && AmPm == "pm") hour += 12;
+	if (hour < 0 || hour >= 24) return false;
+	if ((length == 1 || (length == 2 && stringPart[1].Value == " ")) && AmPm != "") {}
+	else if (length >= 3 && stringPart[1].Value == ":" && stringPart[2].RawType == "num") {
+		if (length == 4 && stringPart[3].Value != " ") return false;
+		if (length >= 5 && (stringPart[3].Value != ":" || stringPart[4].RawType != "num")) return false;
+		if (length == 6 && stringPart[5].Value != " ") return false;
+		minute = stringPart[2].Value*1;
+		if (minute < 0 || minute >= 60) return false;
+		if (length >= 5) {
+			second = stringPart[4].Value*1;
+			if (second < 0 || second >= 60) return false;
+		}
+	}
+	else return false;
+	stringPart.Value = (((((hour*60)+minute)*60)+second)/86400);
+	return true;
+}
+function _IsNumericChar(string) {
+	if (string.charAt(0) >= '0' && string.charAt(0) <= '9') return true;
+	return false;
+}
+function _IsAlphaChar(string) {
+	var char1 = string.charAt(0);
+	if ((char1 >= 'A' && char1 <= 'Z')||(char1 >= 'a' && char1 <= 'z')) return true;
+	else if (char1 == 'ƒ' || char1 == 'Š' || char1 == 'Œ' || char1 == 'š' || char1 == 'œ' || char1 == 'Ÿ') return true;
+	else if (char1 > 'À' && char1 != '×' && char1 != '÷') return true;
+	return false;
+}
+function _IsMonthName(string) {
+	var string1 = string.toLowerCase();
+	var month = -1;
+	var monthNames = new _MonthNamesArray();
+	for (var count=0; count<12 && month==-1; count++) {
+		if (monthNames[count].toLowerCase() == string1) month = count;
+	}
+	return(month);
+}
+function _GetString(number) {
+	return(""+number);
+}
+function _ObjInfo() {
+	this.bHasData = false;
+	this.Number = 0;
+	this.Value = "";
+	this.Type = "G";
+	this.Format = _Format_Gen;
+	this.bHasCalc = false;
+	this.Help = "";
+	this.bMustFill = false;
+	this.bMatchType = false;
+	this.MinValue = "";
+	this.MaxValue = "";
+	this.OnValue = "";
+	this.OffValue = "";
+	this.bCanBeFilled = true;
+	this.bOverride = false;
+	this.bOverridden = false;
+	this.bSaved = true;
+	this.bNumber = false;
+	this.ObjectType = "fill";
+	this.Group = "";
+	this.bHasBeenFilled = false;
+	this.Update = _General_Update;
+	this.NextTab = "";
+	this.PrevTab = "";
+}
+function _General_Update() {
+	return;
+}
+function _CheckValidations(name) {
+	if (!_CheckMustBeFilled(name)) return false;
+	return true;
+}
+function _CheckMustBeFilled(name) {
+	var sError = "The field named \""+name+"\" should be filled in.";
+	var sAllow = "\rAllow it to be empty?";
+	if (_formVars[name].bCanBeFilled && _formVars[name].bMustFill && !_formVars[name].bOverridden) {
+		if (_formVars[name].Value == "") {
+			if (_formVars[name].bOverride) {
+				if (confirm(sError+sAllow)) {
+					_formVars[name].bOverridden = true;
+					return true;
+				}
+			}
+			else{
+				alert(sError);
+			}
+			if(_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "select") {
+				var obj = _GetObject(name);
+				obj.focus();
+				obj.select();
+			}
+			return false;
+		}
+	}
+	return true;
+}
+function _onFocus(object) {
+	if (bInitInProgress) return true;
+	if(_formVars[object.name].bSaved && _formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+		object.value = _formVars[object.name].Value;
+	}
+	_formVars[object.name].bSaved = false;
+	self.status=_formVars[object.name].Help;
+	return true;
+}
+function _onBlur(object) {
+	if (bInitInProgress || bUnloaded) return true;
+	if (object.value == _formVars[object.name].Value || _formVars[object.name].bSaved == true) {
+		if(_formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+			if (_formVars[object.name].bNumber) object.value = _formVars[object.name].Format(_formVars[object.name]);
+		}
+		_formVars[object.name].bSaved = true;
+	}
+	if (_formVars[object.name].Help != "") self.status="";
+	return true;
+}
+function _Format_Gen(object) {
+	return(object.Value);
+}
+function _Format_NG(object) {
+	return("" + object.Number);
+}
+function _Format_DS(object) {
+	var tempDate = new Date(2000,1,1);
+	var offset = 1900;
+	if (tempDate.getYear() == 2000) offset = 0;
+	tempDate.setTime(object.Number * 86400000);
+	var year = tempDate.getYear();
+	if (year < 100 || offset == 1900) year += 1900;
+	var month = tempDate.getMonth()+1;
+	var day = tempDate.getDate();
+	year = year % 100;
+	if (year <= 9) year = "0" + year;
+	return(month + "/" + day + "/" + year);
+}
+// -->
+</SCRIPT>
+&nbsp<BR>
+<DIV ID="IELAYER" style="visibility:show;">
+<LAYER ID=IELAYER visibility=hide;>
+<FORM NAME="IEFORM">
+<DIV ID="Lyr1" style="position:absolute; left:0.40in; top:0.30in; width:2.33in; height:0.33in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.02in; line-height: 1;"><FONT style="font-family:Arial; font-size:18pt;" COLOR="#000000">New Member Form</FONT></DIV>
+<DIV ID="Lyr2" style="position:absolute; left:0.10in; top:1.22in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">First Name</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="FName" SIZE=18 TABINDEX="1" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.88in; top:1.29in; width:1.59in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr3" style="position:absolute; left:2.58in; top:1.22in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Middle Name</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="MName" SIZE=16 TABINDEX="2" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:3.49in; top:1.30in; width:1.38in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr4" style="position:absolute; left:4.97in; top:1.24in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Last Name</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="LName" SIZE=23 TABINDEX="3" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.75in; top:1.30in; width:1.97in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr5" style="position:absolute; left:0.10in; top:1.60in; width:2.54in; height:0.30in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Preferred Name <BR></FONT><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">(what you wish to be called)</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="PName" SIZE=29 TABINDEX="4" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.54in; top:1.67in; width:2.50in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="StAdd" SIZE=30 TABINDEX="5" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.11in; top:2.10in; width:2.56in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="City" SIZE=15 TABINDEX="6" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:3.85in; top:2.10in; width:1.33in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="State" SIZE=4 TABINDEX="7" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.22in; top:2.10in; width:0.38in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="Zip" SIZE=15 TABINDEX="8" MAXLENGTH=5 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.66in; top:2.03in; width:1.26in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr6" style="position:absolute; left:0.11in; top:2.31in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Street Address</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="Suite" SIZE=12 TABINDEX="9" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:2.75in; top:2.10in; width:1.01in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr7" style="position:absolute; left:2.75in; top:2.31in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Suite/Apt/Floor</FONT></DIV>
+<DIV ID="Lyr8" style="position:absolute; left:3.85in; top:2.31in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">City</FONT></DIV>
+<DIV ID="Lyr9" style="position:absolute; left:5.22in; top:2.31in; width:0.39in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">State</FONT></DIV>
+<DIV ID="Lyr10" style="position:absolute; left:5.66in; top:2.31in; width:1.23in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Zip Code (xxxxx)</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="County" SIZE=12 TABINDEX="10" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:7.00in; top:2.11in; width:1.01in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr11" style="position:absolute; left:7.00in; top:2.29in; width:1.00in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">County</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="eMail" SIZE=27 TABINDEX="11" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.15in; top:2.75in; width:2.31in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr12" style="position:absolute; left:0.17in; top:2.89in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">email Address</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="Cell" SIZE=31 TABINDEX="12" MAXLENGTH=10 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:2.55in; top:2.68in; width:2.67in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="Home" SIZE=31 TABINDEX="13" MAXLENGTH=10 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.44in; top:2.66in; width:2.60in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr13" style="position:absolute; left:2.56in; top:2.93in; width:2.47in; height:0.15in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Cell Phone (no spaces or dashes) xxxxxxxxxx</FONT></DIV>
+<DIV ID="Lyr14" style="position:absolute; left:5.51in; top:2.91in; width:2.51in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Home Phone (no spaces or dashes) xxxxxxxxxx</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="BDate" SIZE=18 TABINDEX="14" MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.14in; top:3.30in; width:1.58in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr15" style="position:absolute; left:0.16in; top:3.55in; width:1.52in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Birth Date MMYYYY</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="JobTitle" SIZE=60 TABINDEX="15" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:2.78in; top:4.13in; width:5.05in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr16" style="position:absolute; left:0.11in; top:4.11in; width:2.60in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Preferred Job Title or Descriptive Header </FONT></DIV>
+<DIV ID="Lyr17" style="position:absolute; left:3.44in; top:0.00in; width:4.58in; height:0.95in;">
+<IMG SRC="./NewMemberForm_Files/IMG_1.JPG" height="89" width="438">
+</DIV>
+<INPUT TYPE="TEXT" NAME="CName" SIZE=41 TABINDEX="16" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.13in; top:4.65in; width:3.46in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr18" style="position:absolute; left:0.13in; top:4.30in; width:1.45in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Last Job Information</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="WJobTitle" SIZE=47 TABINDEX="17" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:3.82in; top:4.67in; width:3.98in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr19" style="position:absolute; left:0.13in; top:4.86in; width:3.35in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Company Name (Name of business you worked for, not agency)</FONT></DIV>
+<DIV ID="Lyr20" style="position:absolute; left:3.82in; top:4.86in; width:2.59in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Job Title</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="CCity" SIZE=15 TABINDEX="18" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:0.11in; top:5.25in; width:1.32in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="CState" SIZE=4 TABINDEX="19" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.48in; top:5.25in; width:0.36in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<INPUT TYPE="TEXT" NAME="CZip" SIZE=15 TABINDEX="20" MAXLENGTH=5 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.92in; top:5.18in; width:1.26in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr21" style="position:absolute; left:0.13in; top:5.48in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">City</FONT></DIV>
+<DIV ID="Lyr22" style="position:absolute; left:1.48in; top:5.48in; width:0.39in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">State</FONT></DIV>
+<DIV ID="Lyr23" style="position:absolute; left:1.92in; top:5.48in; width:1.61in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Zip Code (no spaces) xxxxx</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="SDate" SIZE=18 TABINDEX="21" MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:4.15in; top:5.19in; width:1.55in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr24" style="position:absolute; left:4.13in; top:5.49in; width:1.52in; height:0.16in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Start Date MMYYYY</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="EDate" SIZE=18 TABINDEX="22" MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.84in; top:5.19in; width:1.54in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr25" style="position:absolute; left:5.81in; top:5.48in; width:1.52in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000"> <BR>End Date MMYYYY</FONT></DIV>
+<SELECT NAME="EType" TABINDEX="23" style="position:absolute; left:1.30in; top:5.84in; width:1.39in; height:0.18in; font-family:Times New Roman; font-size:10pt;" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)">
+<OPTION>Permanent
+<OPTION>Contract
+<OPTION>Contract to Hire
+</SELECT>
+<DIV ID="Lyr26" style="position:absolute; left:0.25in; top:5.82in; width:1.01in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Employment Type</FONT></DIV>
+<SELECT NAME="EStatus" TABINDEX="24" style="position:absolute; left:3.90in; top:5.84in; width:1.01in; height:0.18in; font-family:Times New Roman; font-size:10pt;" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)">
+<OPTION>Full Time
+<OPTION>Part Time
+</SELECT>
+<DIV ID="Lyr27" style="position:absolute; left:2.78in; top:5.82in; width:1.10in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Employment Status</FONT></DIV>
+<SELECT NAME="Remote" TABINDEX="25" style="position:absolute; left:6.56in; top:5.84in; width:0.56in; height:0.18in; font-family:Times New Roman; font-size:10pt;" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)">
+<OPTION>Yes
+<OPTION>No
+</SELECT>
+<DIV ID="Lyr28" style="position:absolute; left:5.13in; top:5.82in; width:1.39in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Remote (work from home)</FONT></DIV>
+<DIV ID="Lyr29" style="position:absolute; left:0.08in; top:6.15in; width:7.74in; height:0.01in; font-size: 1pt; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-bottom-width: 0px; border-bottom-style: none;"></DIV>
+<DIV ID="Lyr30" style="position:absolute; left:0.34in; top:6.22in; width:6.80in; height:2.82in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.21in; line-height: 1;"><FONT style="font-family:Arial; font-size:9pt;" COLOR="#000000">I agree to:<BR>&quot; Attend general meetings;<BR>&quot; Complete all 5 Mods of the ACT program; <BR>&quot; Join a PSGCNJ committee and volunteer a minimum of 3 hours per week;<BR>&quot; Follow all guidelines established by the PSGCNJ committees;<BR>&quot; All personal information regarding individual PSGCNJ members is deemed &quot;confidential.&quot; No personal information will be revealed without explicit permission;<BR>&quot; Members may provide services to PSGCNJ and be compenstated as agreeed the same as any vendor as long as no conflict of interest exists between the member and PSGCNJ.;<BR>&quot; Maintain proper office decorum and show mutual respect to other PSGCNJ members;<BR>&quot; Inform Membership/Finance Commitee when I secure any type of new employment;<BR>&quot; Wear business casual dress, at general meetings and when representing PSGCNJ at outside functions, the appropriate dress is required<BR>&quot; My first priority is job seeking.<BR>I have read, understand, and agree to abide by all conditions of PSGCNJ membership specified above. <BR>Violations of any of the above may result in my loss of privileges and membership.<BR><B><I>Checking the box to the right, means I have read, understand, and agree to abide by all conditions of PSGCNJ membership specified above. Violations of any of the above may result in my loss of privileges and membership</I></B><B>.</B></FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></DIV>
+<INPUT TYPE="CHECKBOX" NAME="Agree" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="26" style="position:absolute; left:7.23in; top:8.57in; width:0.23in; height:0.24in;"
+>
+<DIV ID="Lyr31" style="position:absolute; left:7.18in; top:8.84in; width:0.44in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Agree</FONT></DIV>
+<DIV ID="Lyr32" style="position:absolute; left:0.22in; top:9.66in; width:6.35in; height:0.21in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.04in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Your name may be used be for our electronic newsletter and other networking events stating that you are a new member.</FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></DIV>
+<SELECT NAME="NameUseOK" TABINDEX="27" style="position:absolute; left:6.68in; top:9.69in; width:1.01in; height:0.18in; font-family:Times New Roman; font-size:10pt;" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)">
+<OPTION>Yes
+<OPTION>No
+</SELECT>
+<DIV ID="Lyr33" style="position:absolute; left:0.23in; top:10.01in; width:6.27in; height:0.43in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.14in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">When I land, my email address/phone number and new job company will be made available to PSGCNJ members for networking                                                                                       (Check if you wish to opt out only, otherwise skip)</FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></DIV>
+<INPUT TYPE="CHECKBOX" NAME="OptOut" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="28" style="position:absolute; left:7.00in; top:10.04in; width:0.18in; height:0.17in;"
+>
+<DIV ID="Lyr34" style="position:absolute; left:7.26in; top:10.05in; width:0.46in; height:0.17in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">opt out</FONT></DIV>
+<DIV ID="Lyr35" style="position:absolute; left:1.27in; top:3.55in; width:2.53in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">(no spaces  only to be used for internal statistics)</FONT></DIV>
+<SELECT NAME="Veteran" TABINDEX="29" style="position:absolute; left:4.99in; top:3.38in; width:1.01in; height:0.19in; font-family:Times New Roman; font-size:10pt;" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)">
+<OPTION>Yes
+<OPTION>No
+<OPTION> I do not wish to disclose
+</SELECT>
+<DIV ID="Lyr36" style="position:absolute; left:3.84in; top:3.24in; width:1.11in; height:0.16in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; line-height: 1;">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">Are you a Veteran ?</FONT></DIV>
+<DIV ID="Lyr37" style="position:absolute; left:4.93in; top:1.58in; width:0.89in; height:0.32in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:9pt;" COLOR="#000000">Date of Form: <BR>MMDDYYYY</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="MDate" SIZE=25 TABINDEX="30" MAXLENGTH=8 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:5.91in; top:1.60in; width:2.10in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+</FORM>
+</LAYER>
+</DIV>
+<DIV ID="NNLAYER" style="visibility:hidden">
+<LAYER ID=NNLAYER>
+<LAYER left=32 top=28 width=229 height=36>
+<DIV ID="Lyr38" style="position:absolute; left:0; top:0; width:229px; height:36px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:18pt; line-height:27px;" COLOR="#000000">New Member Form</FONT></P></DIV></LAYER>
+<LAYER left=5 top=121 width=101 height=24>
+<DIV ID="Lyr39" style="position:absolute; left:0; top:0; width:101px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">First Name</FONT></P></DIV></LAYER>
+<LAYER ID=LyrFName left=82 top=116 width=151 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="FName" SIZE=12 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=243 top=121 width=101 height=24>
+<DIV ID="Lyr40" style="position:absolute; left:0; top:0; width:101px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Middle Name</FONT></P></DIV></LAYER>
+<LAYER ID=LyrMName left=332 top=118 width=131 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MName" SIZE=10 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=472 top=124 width=101 height=23>
+<DIV ID="Lyr41" style="position:absolute; left:0; top:0; width:101px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Last Name</FONT></P></DIV></LAYER>
+<LAYER ID=LyrLName left=550 top=118 width=187 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="LName" SIZE=15 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=4 top=150 width=248 height=36>
+<DIV ID="Lyr42" style="position:absolute; left:0; top:0; width:248px; height:36px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Preferred Name <BR></FONT><FONT style="font-family:Arial; font-size:8pt;" COLOR="#000000">(what you wish to be called)</FONT></P></DIV></LAYER>
+<LAYER ID=LyrPName left=146 top=152 width=238 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="PName" SIZE=19 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrStAdd left=8 top=194 width=245 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="StAdd" SIZE=20 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrCity left=367 top=194 width=127 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="City" SIZE=9 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrState left=498 top=194 width=35 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="State" SIZE=1 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrZip left=539 top=194 width=121 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="Zip" SIZE=9 MAXLENGTH=5 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=6 top=220 width=101 height=21>
+<DIV ID="Lyr43" style="position:absolute; left:0; top:0; width:101px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Street Address</FONT></P></DIV></LAYER>
+<LAYER ID=LyrSuite left=261 top=194 width=96 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="Suite" SIZE=7 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=258 top=220 width=102 height=21>
+<DIV ID="Lyr44" style="position:absolute; left:0; top:0; width:102px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Suite/Apt/Floor</FONT></P></DIV></LAYER>
+<LAYER left=365 top=220 width=101 height=21>
+<DIV ID="Lyr45" style="position:absolute; left:0; top:0; width:101px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">City</FONT></P></DIV></LAYER>
+<LAYER left=495 top=220 width=41 height=21>
+<DIV ID="Lyr46" style="position:absolute; left:0; top:0; width:41px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">State</FONT></P></DIV></LAYER>
+<LAYER left=537 top=220 width=123 height=21>
+<DIV ID="Lyr47" style="position:absolute; left:0; top:0; width:123px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Zip Code (xxxxx)</FONT></P></DIV></LAYER>
+<LAYER ID=LyrCounty left=669 top=195 width=96 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="County" SIZE=7 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=667 top=219 width=99 height=20>
+<DIV ID="Lyr48" style="position:absolute; left:0; top:0; width:99px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">County</FONT></P></DIV></LAYER>
+<LAYER ID=LyreMail left=11 top=256 width=221 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="eMail" SIZE=18 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=10 top=263 width=101 height=32>
+<DIV ID="Lyr49" style="position:absolute; left:0; top:0; width:101px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">email Address</FONT></P></DIV></LAYER>
+<LAYER ID=LyrCell left=241 top=256 width=256 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="Cell" SIZE=21 MAXLENGTH=10 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrHome left=518 top=255 width=250 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="Home" SIZE=20 MAXLENGTH=10 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=241 top=265 width=240 height=33>
+<DIV ID="Lyr50" style="position:absolute; left:0; top:0; width:240px; height:33px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Cell Phone (no spaces or dashes) xxxxxxxxxx</FONT></P></DIV></LAYER>
+<LAYER left=524 top=265 width=245 height=33>
+<DIV ID="Lyr51" style="position:absolute; left:0; top:0; width:245px; height:33px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Home Phone (no spaces or dashes) xxxxxxxxxx</FONT></P></DIV></LAYER>
+<LAYER ID=LyrBDate left=9 top=316 width=152 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="BDate" SIZE=12 MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=9 top=328 width=151 height=32>
+<DIV ID="Lyr52" style="position:absolute; left:0; top:0; width:151px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Birth Date MMYYYY</FONT></P></DIV></LAYER>
+<LAYER ID=LyrJobTitle left=264 top=388 width=484 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="JobTitle" SIZE=41 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=6 top=390 width=254 height=24>
+<DIV ID="Lyr53" style="position:absolute; left:0; top:0; width:254px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Preferred Job Title or Descriptive Header </FONT></P></DIV></LAYER>
+<LAYER left=326 top=0 width=440 height=91>
+<IMG SRC="./NewMemberForm_Files/IMG_1.JPG" height="89" width="438">
+</LAYER>
+<LAYER ID=LyrCName left=10 top=438 width=330 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="CName" SIZE=28 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=6 top=417 width=144 height=24>
+<DIV ID="Lyr54" style="position:absolute; left:0; top:0; width:144px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Last Job Information</FONT></P></DIV></LAYER>
+<LAYER ID=LyrWJobTitle left=365 top=440 width=380 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="WJobTitle" SIZE=32 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=6 top=465 width=327 height=20>
+<DIV ID="Lyr55" style="position:absolute; left:0; top:0; width:327px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Company Name (Name of business you worked for, not agency)</FONT></P></DIV></LAYER>
+<LAYER left=361 top=465 width=254 height=20>
+<DIV ID="Lyr56" style="position:absolute; left:0; top:0; width:254px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Job Title</FONT></P></DIV></LAYER>
+<LAYER ID=LyrCCity left=8 top=496 width=126 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="CCity" SIZE=9 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrCState left=139 top=496 width=34 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="CState" SIZE=1 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER ID=LyrCZip left=180 top=496 width=121 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="CZip" SIZE=9 MAXLENGTH=5 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=6 top=524 width=102 height=21>
+<DIV ID="Lyr57" style="position:absolute; left:0; top:0; width:102px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">City</FONT></P></DIV></LAYER>
+<LAYER left=137 top=524 width=41 height=21>
+<DIV ID="Lyr58" style="position:absolute; left:0; top:0; width:41px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">State</FONT></P></DIV></LAYER>
+<LAYER left=179 top=524 width=159 height=21>
+<DIV ID="Lyr59" style="position:absolute; left:0; top:0; width:159px; height:21px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Zip Code (no spaces) xxxxx</FONT></P></DIV></LAYER>
+<LAYER ID=LyrSDate left=394 top=497 width=149 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="SDate" SIZE=11 MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=390 top=513 width=151 height=32>
+<DIV ID="Lyr60" style="position:absolute; left:0; top:0; width:151px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Start Date MMYYYY</FONT></P></DIV></LAYER>
+<LAYER ID=LyrEDate left=557 top=497 width=148 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="EDate" SIZE=11 MAXLENGTH=6 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=552 top=513 width=151 height=32>
+<DIV ID="Lyr61" style="position:absolute; left:0; top:0; width:151px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000"> <BR>End Date MMYYYY</FONT></P></DIV></LAYER>
+<LAYER ID=LyrEType left=123 top=553 width=131 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<SELECT NAME="EType" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)"">
+<OPTION>Permanent
+<OPTION>Contract
+<OPTION>Contract to Hire
+</SELECT></FORM></FONT></LAYER>
+<LAYER left=19 top=558 width=101 height=20>
+<DIV ID="Lyr62" style="position:absolute; left:0; top:0; width:101px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Employment Type</FONT></P></DIV></LAYER>
+<LAYER ID=LyrEStatus left=371 top=553 width=96 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<SELECT NAME="EStatus" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)"">
+<OPTION>Full Time
+<OPTION>Part Time
+</SELECT></FORM></FONT></LAYER>
+<LAYER left=261 top=558 width=110 height=20>
+<DIV ID="Lyr63" style="position:absolute; left:0; top:0; width:110px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Employment Status</FONT></P></DIV></LAYER>
+<LAYER ID=LyrRemote left=628 top=553 width=52 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<SELECT NAME="Remote" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)"">
+<OPTION>Yes
+<OPTION>No
+</SELECT></FORM></FONT></LAYER>
+<LAYER left=486 top=558 width=137 height=20>
+<DIV ID="Lyr64" style="position:absolute; left:0; top:0; width:137px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Remote (work from home)</FONT></P></DIV></LAYER>
+<LAYER left=4 top=590 width=743 height=1>
+<DIV ID="Lyr65" style="position:absolute; left:0; top:0; width:744px; height:1px; padding-top: 0px; font-size: 1pt; border-color: #000000; border-style: solid; border-width: 1px; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-bottom-width: 0px; border-bottom-style: none;">&nbsp</DIV>
+</LAYER>
+<LAYER left=28 top=615 width=657 height=256>
+<DIV ID="Lyr66" style="position:absolute; left:0; top:0; width:657px; height:256px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:9pt; line-height:13px;" COLOR="#000000">I agree to:<BR>&quot; Attend general meetings;<BR>&quot; Complete all 5 Mods of the ACT program; <BR>&quot; Join a PSGCNJ committee and volunteer a minimum of 3 hours per week;<BR>&quot; Follow all guidelines established by the PSGCNJ committees;<BR>&quot; All personal information regarding individual PSGCNJ members is deemed &quot;confidential.&quot; No personal information will be revealed without explicit permission;<BR>&quot; Members may provide services to PSGCNJ and be compenstated as agreeed the same as any vendor as long as no conflict of interest exists between the member and PSGCNJ.;<BR>&quot; Maintain proper office decorum and show mutual respect to other PSGCNJ members;<BR>&quot; Inform Membership/Finance Commitee when I secure any type of new employment;<BR>&quot; Wear business casual dress, at general meetings and when representing PSGCNJ at outside functions, the appropriate dress is required<BR>&quot; My first priority is job seeking.<BR>I have read, understand, and agree to abide by all conditions of PSGCNJ membership specified above. <BR>Violations of any of the above may result in my loss of privileges and membership.<BR><B><I>Checking the box to the right, means I have read, understand, and agree to abide by all conditions of PSGCNJ membership specified above. Violations of any of the above may result in my loss of privileges and membership</I></B><B>.</B></FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></P></DIV></LAYER>
+<LAYER ID=LyrAgree left=690 top=823 width=22 height=23>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="Agree" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER left=684 top=848 width=46 height=20>
+<DIV ID="Lyr67" style="position:absolute; left:0; top:0; width:46px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Agree</FONT></P></DIV></LAYER>
+<LAYER left=15 top=929 width=615 height=20>
+<DIV ID="Lyr68" style="position:absolute; left:0; top:0; width:615px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Your name may be used be for our electronic newsletter and other networking events stating that you are a new member.</FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></P></DIV></LAYER>
+<LAYER ID=LyrNameUseOK left=638 top=924 width=96 height=23>
+<font style="font-family:Times New Roman; font-size:9pt;"><FORM onSubmit="return false">
+<SELECT NAME="NameUseOK" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)"">
+<OPTION>Yes
+<OPTION>No
+</SELECT></FORM></FONT></LAYER>
+<LAYER left=16 top=972 width=607 height=33>
+<DIV ID="Lyr69" style="position:absolute; left:0; top:0; width:607px; height:33px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">When I land, my email address/phone number and new job company will be made available to PSGCNJ members for networking                                                                                       (Check if you wish to opt out only, otherwise skip)</FONT><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000"></FONT></P></DIV></LAYER>
+<LAYER ID=LyrOptOut left=668 top=964 width=17 height=16>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="OptOut" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER left=692 top=964 width=48 height=20>
+<DIV ID="Lyr70" style="position:absolute; left:0; top:0; width:48px; height:20px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">opt out</FONT></P></DIV></LAYER>
+<LAYER left=117 top=328 width=247 height=32>
+<DIV ID="Lyr71" style="position:absolute; left:0; top:0; width:247px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">(no spaces  only to be used for internal statistics)</FONT></P></DIV></LAYER>
+<LAYER ID=LyrVeteran left=476 top=316 width=96 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<SELECT NAME="Veteran" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)"">
+<OPTION>Yes
+<OPTION>No
+<OPTION> I do not wish to disclose
+</SELECT></FORM></FONT></LAYER>
+<LAYER left=364 top=297 width=111 height=32>
+<DIV ID="Lyr72" style="position:absolute; left:0; top:0; width:111px; height:32px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left">&nbsp<BR>
+<FONT style="font-family:Arial; font-size:8pt; line-height:12px;" COLOR="#000000">Are you a Veteran ?</FONT></P></DIV></LAYER>
+<LAYER left=468 top=150 width=89 height=36>
+<DIV ID="Lyr73" style="position:absolute; left:0; top:0; width:89px; height:36px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:9pt; line-height:13px;" COLOR="#000000">Date of Form: <BR>MMDDYYYY</FONT></P></DIV></LAYER>
+<LAYER ID=LyrMDate left=563 top=153 width=202 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MDate" SIZE=16 MAXLENGTH=8 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+</LAYER>
+</DIV>
+<DIV ID="IEFORMLAYER" style="position:absolute; left:0.5in; top:10.86in; visibility:visible;">
+<LAYER ID=FORMLAYER left=48 top=1042 visibility=hide>
+<FORM METHOD="GET" ACTION="" NAME="OMNIFORM" onSubmit="return _OnSubmit(this)" OnReset="return _OnReset(this)">
+<INPUT TYPE="HIDDEN" NAME="FName">
+<INPUT TYPE="HIDDEN" NAME="MName">
+<INPUT TYPE="HIDDEN" NAME="LName">
+<INPUT TYPE="HIDDEN" NAME="PName">
+<INPUT TYPE="HIDDEN" NAME="StAdd">
+<INPUT TYPE="HIDDEN" NAME="City">
+<INPUT TYPE="HIDDEN" NAME="State">
+<INPUT TYPE="HIDDEN" NAME="Zip">
+<INPUT TYPE="HIDDEN" NAME="Suite">
+<INPUT TYPE="HIDDEN" NAME="County">
+<INPUT TYPE="HIDDEN" NAME="eMail">
+<INPUT TYPE="HIDDEN" NAME="Cell">
+<INPUT TYPE="HIDDEN" NAME="Home">
+<INPUT TYPE="HIDDEN" NAME="BDate">
+<INPUT TYPE="HIDDEN" NAME="JobTitle">
+<INPUT TYPE="HIDDEN" NAME="CName">
+<INPUT TYPE="HIDDEN" NAME="WJobTitle">
+<INPUT TYPE="HIDDEN" NAME="CCity">
+<INPUT TYPE="HIDDEN" NAME="CState">
+<INPUT TYPE="HIDDEN" NAME="CZip">
+<INPUT TYPE="HIDDEN" NAME="SDate">
+<INPUT TYPE="HIDDEN" NAME="EDate">
+<INPUT TYPE="HIDDEN" NAME="EType">
+<INPUT TYPE="HIDDEN" NAME="EStatus">
+<INPUT TYPE="HIDDEN" NAME="Remote">
+<INPUT TYPE="HIDDEN" NAME="Agree">
+<INPUT TYPE="HIDDEN" NAME="NameUseOK">
+<INPUT TYPE="HIDDEN" NAME="OptOut">
+<INPUT TYPE="HIDDEN" NAME="Veteran">
+<INPUT TYPE="HIDDEN" NAME="MDate">
+<P><INPUT TYPE="SUBMIT" VALUE="Submit Form" TABINDEX="31">
+<INPUT TYPE="RESET" VALUE="Clear Form" TABINDEX="32">
+</FORM>
+</LAYER>
+</DIV>
+
+</BODY>
+</HTML>

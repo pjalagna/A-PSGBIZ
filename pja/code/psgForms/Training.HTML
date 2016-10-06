@@ -1,0 +1,901 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Training</TITLE>
+<META NAME="GENERATOR" CONTENT="OmniForm">
+</HEAD>
+<BODY onLoad="_InitVars(this)" onResize="_RestorePage()" onBeforeUnload="_StorePage()" onUnload="_StorePage()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var ns4 = (document.layers)? true:false;
+var ns6 = (document.getElementById && !document.all)? true:false;
+var ie4 = (document.all)? true:false;
+var _formVars;
+var bInitInProgress = true;
+var bUnloaded = false;
+
+if (!ie4 && !ns4 && !ns6) alert("This form requires Microsoft Internet Explorer 4.0 or later or Netscape Navigator 4.0 or later.");
+
+if (ns4) {
+	var origWidth = window.innerWidth;
+	var origHeight = window.innerHeight;
+}
+
+function _RestorePage() {
+	if (ns4) {
+		if (origWidth != window.innerWidth || origHeight != window.innerHeight) {
+		history.go(0);
+		}
+	}
+	return true;
+}
+
+function _StorePage() {
+	if (bInitInProgress || bUnloaded) return true;
+	var obj;
+	_form = document.IEFORM;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill") {
+			if (ns4) obj = document.layers.NNLAYER.document.layers[_formVars[i].Layer].document.forms[0][i];
+			else obj = _form[i];
+			obj.value = _formVars[i].Value;
+		}
+	}
+	bUnloaded = true;
+	return true;
+}
+
+function _GetObject(name) {
+	var obj;
+	if (ns4) obj = _NNform[_formVars[name].Layer].document.forms[0][name];
+	else obj = _form[name];
+	return(obj);
+}
+
+function _Vars(object) {
+	this.MemberNumber = new _ObjInfo();
+	this.MemberNumber.Type = "Number";
+	this.MemberNumber.bMustFill = true;
+	this.MemberNumber.Layer = "LyrMemberNumber";
+	this.Hours = new _ObjInfo();
+	this.Hours.Type = "Number";
+	this.Hours.Format = _Format_N2;
+	this.Hours.bMustFill = true;
+	this.Hours.Layer = "LyrHours";
+	this.FillText7 = new _ObjInfo();
+	this.FillText7.bOverride = true;
+	this.FillText7.Layer = "LyrFillText7";
+	this.ACT1 = new _ObjInfo();
+	this.ACT1.OnValue = "1";
+	this.ACT1.OffValue = "0";
+	this.ACT1.bOverride = true;
+	this.ACT1.ObjectType = "checkbox";
+	this.ACT1.Layer = "LyrACT1";
+	this.ACT2 = new _ObjInfo();
+	this.ACT2.OnValue = "1";
+	this.ACT2.OffValue = "0";
+	this.ACT2.bOverride = true;
+	this.ACT2.ObjectType = "checkbox";
+	this.ACT2.Layer = "LyrACT2";
+	this.ACT3 = new _ObjInfo();
+	this.ACT3.OnValue = "1";
+	this.ACT3.OffValue = "0";
+	this.ACT3.bOverride = true;
+	this.ACT3.ObjectType = "checkbox";
+	this.ACT3.Layer = "LyrACT3";
+	this.ACT4 = new _ObjInfo();
+	this.ACT4.OnValue = "1";
+	this.ACT4.OffValue = "0";
+	this.ACT4.bOverride = true;
+	this.ACT4.ObjectType = "checkbox";
+	this.ACT4.Layer = "LyrACT4";
+	this.ACT5 = new _ObjInfo();
+	this.ACT5.OnValue = "1";
+	this.ACT5.OffValue = "0";
+	this.ACT5.bOverride = true;
+	this.ACT5.ObjectType = "checkbox";
+	this.ACT5.Layer = "LyrACT5";
+	this.AResume = new _ObjInfo();
+	this.AResume.OnValue = "1";
+	this.AResume.OffValue = "0";
+	this.AResume.bOverride = true;
+	this.AResume.ObjectType = "checkbox";
+	this.AResume.Layer = "LyrAResume";
+	this.ACAR = new _ObjInfo();
+	this.ACAR.OnValue = "1";
+	this.ACAR.OffValue = "0";
+	this.ACAR.bOverride = true;
+	this.ACAR.ObjectType = "checkbox";
+	this.ACAR.Layer = "LyrACAR";
+	this.AMarketing = new _ObjInfo();
+	this.AMarketing.OnValue = "1";
+	this.AMarketing.OffValue = "0";
+	this.AMarketing.bOverride = true;
+	this.AMarketing.ObjectType = "checkbox";
+	this.AMarketing.Layer = "LyrAMarketing";
+	this.AInterview = new _ObjInfo();
+	this.AInterview.OnValue = "1";
+	this.AInterview.OffValue = "0";
+	this.AInterview.bOverride = true;
+	this.AInterview.ObjectType = "checkbox";
+	this.AInterview.Layer = "LyrAInterview";
+	this.Improv = new _ObjInfo();
+	this.Improv.OnValue = "1";
+	this.Improv.OffValue = "0";
+	this.Improv.bOverride = true;
+	this.Improv.ObjectType = "checkbox";
+	this.Improv.Layer = "LyrImprov";
+	this.AImprov = new _ObjInfo();
+	this.AImprov.OnValue = "1";
+	this.AImprov.OffValue = "0";
+	this.AImprov.bOverride = true;
+	this.AImprov.ObjectType = "checkbox";
+	this.AImprov.Layer = "LyrAImprov";
+	this.Mock = new _ObjInfo();
+	this.Mock.OnValue = "1";
+	this.Mock.OffValue = "0";
+	this.Mock.bOverride = true;
+	this.Mock.ObjectType = "checkbox";
+	this.Mock.Layer = "LyrMock";
+	this.TTT = new _ObjInfo();
+	this.TTT.OnValue = "1";
+	this.TTT.OffValue = "0";
+	this.TTT.bOverride = true;
+	this.TTT.ObjectType = "checkbox";
+	this.TTT.Layer = "LyrTTT";
+	this.ALink = new _ObjInfo();
+	this.ALink.OnValue = "1";
+	this.ALink.OffValue = "0";
+	this.ALink.bOverride = true;
+	this.ALink.ObjectType = "checkbox";
+	this.ALink.Layer = "LyrALink";
+	this.OTrain = new _ObjInfo();
+	this.OTrain.OnValue = "1";
+	this.OTrain.OffValue = "0";
+	this.OTrain.bOverride = true;
+	this.OTrain.ObjectType = "checkbox";
+	this.OTrain.Layer = "LyrOTrain";
+	this.MDate = new _ObjInfo();
+	this.MDate.Type = "Date";
+	this.MDate.bMustFill = true;
+	this.MDate.Layer = "LyrMDate";
+}
+
+function _InitVars(object) {
+	bInitInProgress = true;
+	_form = document.IEFORM;
+	_subForm = document.OMNIFORM;
+	if (ie4) document.all.IEFORMLAYER.style.visibility = "visible";
+	if (ns4) _NNform = document.layers.NNLAYER.document.layers;
+	if (ns4) _NNsubForm = document.layers.FORMLAYER.document.forms.OMNIFORM;
+	if (ns4) document.layers.FORMLAYER.visibility = "show";
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox" || _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				_formVars[i].Value = obj.value;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				if (obj.options.selectedIndex == -1) _formVars[i].Value = ""
+				else _formVars[i].Value = obj.options[obj.options.selectedIndex].text;
+				_SetObjectNumber(_formVars[i]);
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" ) {
+				if (obj.checked) _formVars[i].Value = _formVars[i].OnValue;
+				else _formVars[i].Value = _formVars[i].OffValue;
+				_SetObjectNumber(_formVars[i]);
+				if (obj.checked) {
+					if (_formVars[i].Group != "") {
+						var group = _formVars[i].Group;
+						_formVars[group].Value = _formVars[i].Value;
+						_formVars[group].Number = _formVars[i].Number;
+						_formVars[group].bNumber = _formVars[i].bNumber;
+						if (ns6) {
+							_UpdateField(group);
+						}
+					}
+				}
+			}
+			if (_formVars[i].ObjectType == "fill" &&  _formVars[i].Value != "") {
+				_formVars[i].bHasData = true;
+				_UpdateField(i);
+			}
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	bInitInProgress = false;
+	return true;
+}
+
+function _OnSubmit(object) {
+	if (bInitInProgress) return true;
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].Group == "") {
+			if (_formVars[i].ObjectType == "group" || _formVars[i].ObjectType == "hidden") {
+				if (!_CheckValidations(i)) return false;
+				object[i].value = _formVars[i].Value;
+			}
+			else {
+				obj = _GetObject(i);
+				if (!_CheckValidations(i)) return false;
+				if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+					if (obj.checked) object[i].value = obj.value;
+					else object[i].value = "";
+				}
+				else if (_formVars[i].ObjectType == "select") {
+					if (obj.options.selectedIndex == -1) object[i].value = ""
+					else object[i].value = obj.options[obj.options.selectedIndex].text;
+				}
+				else object[i].value = obj.value;
+			}
+		}
+	}
+	return true;
+}
+
+function _OnReset(object) {
+	if (bInitInProgress) return true;
+	_formVars = new _Vars();
+	var obj;
+	for (var i in _formVars) {
+		if (_formVars[i].ObjectType == "fill" || _formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio" || _formVars[i].ObjectType == "select") {
+			obj = _GetObject(i);
+			if (_formVars[i].ObjectType == "fill") {
+				obj.value = "";
+				_formVars[i].Value = ""
+			}
+			else if (_formVars[i].ObjectType == "select") {
+				obj.options.selectedIndex = 0;
+				_formVars[i].Value = obj.options[0].text;
+			}
+			else if (_formVars[i].ObjectType == "checkbox"|| _formVars[i].ObjectType == "radio") {
+				obj.checked = false;
+				_formVars[i].Value = _formVars[i].OffValue;
+			}
+			_SetObjectNumber(_formVars[i]);
+		}
+	}
+	for (var i in _formVars) {
+		_formVars[i].Update();
+	}
+	return false;
+}
+
+function _ComputeForm(object) {
+	if (bInitInProgress) return true;
+	var name = object.name;
+	var field = name;
+	if(_formVars[name].bCanBeFilled) {
+		if (object.type == "checkbox" || object.type == "radio") {
+			if (object.checked == true) _formVars[name].Value=object.value;
+			else _formVars[name].Value=_formVars[name].OffValue;
+			_SetObjectNumber(_formVars[name]);
+			if (_formVars[name].Group != "") {
+				var group = _formVars[name].Group;
+				_formVars[group].Value = _formVars[name].Value;
+				_formVars[group].Number = _formVars[name].Number;
+				_formVars[group].bNumber = _formVars[name].bNumber;
+				_UpdateField(group);
+				field = group;
+			}
+		}else if (object.type == "select-one") {
+			_formVars[name].Value = object.options[object.options.selectedIndex].text;
+			_SetObjectNumber(_formVars[name]);
+		}else{
+			_formVars[name].Value = object.value;
+			_SetObjectNumber(_formVars[name]);
+			_formVars[name].bSaved = true;
+		}
+		_formVars[field].bHasBeenFilled = true;
+		if(_formVars[field].Value != "") {
+			_formVars[field].bHasData = true;
+		}
+		else {
+			_formVars[field].bHasData = false;
+		}
+		_formVars[field].Update();
+		_formVars[field].bHasBeenFilled = false;
+	}
+	return true;
+}
+
+function _UpdateField(name) {
+	var obj;
+	if (_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio"|| _formVars[name].ObjectType == "select") {
+		obj = _GetObject(name);
+		if (_formVars[name].ObjectType == "fill") {
+			if (!_formVars[name].bHasData) obj.value = "";
+			else if (_formVars[name].bNumber) obj.value = _formVars[name].Format(_formVars[name]);
+			else obj.value = _formVars[name].Value;
+		}
+		else if (_formVars[name].ObjectType == "select") {
+			var index = -1;
+			for (var i=0; i<obj.length; i++) {
+				if (obj.options[i].text == _formVars[name].Value) index = i;
+			}
+			obj.selectedIndex = index;
+		}
+		else if (_formVars[name].ObjectType == "checkbox" || _formVars[name].ObjectType == "radio") {
+			if (_formVars[name].Value == _formVars[name].OnValue) obj.checked = true;
+			else  obj.checked = false;
+		}
+	}
+	else if (_formVars[name].ObjectType == "group") {
+		for (var i in _formVars) {
+			if (_formVars[i].Group == name) {
+				obj = _GetObject(i);
+				if (_formVars[i].OnValue == _formVars[name].Value) obj.checked = true;
+				else obj.checked = false;
+			}
+		}
+	}
+}
+
+function _GetNumber(string) {
+	var temp=_ConvertNumber(string);
+	if (typeof(temp) != "number") return(0);
+	else return(temp);
+}
+function _SetObjectNumber(object) {
+	var temp=_ConvertNumber(object.Value);
+	if (typeof(temp) != "number") {
+		object.Number = 0;
+		object.bNumber = false;
+	}
+	else {
+		object.Number = temp;
+		object.bNumber = true;
+	}
+}
+function _ConvertNumber(string) {
+	string1=""+string;
+	if (string1 == "") return(0);
+	var stringPart = new Array();
+	_MakeStringParts(string1, stringPart);
+	if (_MatchDateString(stringPart)) return(stringPart.Value);
+	else if (_MatchTimeString(stringPart)) return(stringPart.Value);
+	else if (_MatchNumberString(stringPart)) return(stringPart.Value);
+	else return("");
+}
+function _StringPart() {
+	this.RawType = "";
+	this.LogType = "";
+	this.Offset = "";
+	this.Length = "";
+	this.Value = "";
+}
+function _MakeStringParts(string, stringPart) {
+	var count=0;
+	var parts=0;
+	while (count<string.length) {
+		stringPart[parts] = new _StringPart();
+		stringPart[parts].Offset = count;
+		var length = 0;
+		var rawType = "";
+		var logType = "";
+		while (count<string.length) {
+			if (_IsNumericChar(string.charAt(count))) {
+				if (rawType == "") rawType = "num";
+				else if (rawType == "alpha") break;
+			}
+			else if (_IsAlphaChar(string.charAt(count))) {
+				if (rawType == "") rawType = "alpha";
+				else if (rawType == "num") break;
+			}
+			else break;
+			count++;
+			length++;
+		}
+		if (length>0) {
+			var value = string.substring(stringPart[parts].Offset,count);
+			if (rawType == "alpha") {
+				if (_IsMonthName(value) != -1) logType = "month";
+			}
+			stringPart[parts].Value = value;
+			stringPart[parts].Length = length;
+			stringPart[parts].RawType = rawType;
+		}
+		else {
+			stringPart[parts].Value = string.charAt(count);
+			stringPart[parts].Length = 1;
+			stringPart[parts].RawType = string.charAt(count);
+			if (string.charAt(count) == "$") logType = "cur";
+			count++;
+		}
+		stringPart[parts].LogType = logType;
+		parts++;
+	}
+	stringPart.Length = parts;
+	stringPart.Value = "";
+}
+function _MatchDateString(stringPart) {
+	var month = 0;
+	var day = 0;
+	var year = 0;
+	var bFound = false;
+	if (stringPart.Length == 5 && stringPart[1].Value == stringPart[3].Value && (stringPart[1].Value == '/' || stringPart[1].Value == '-' || stringPart[1].Value == '.') && stringPart[2].Length <= 2) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num" && stringPart[4].RawType == "num") {
+			month = stringPart[0].Value;
+			day = stringPart[2].Value;
+			year = stringPart[4].Value;
+			bFound = true;
+		}
+	}
+	else if (stringPart.Length == 3 && (stringPart[1].Value == '/' || stringPart[1].Value == '-')) {
+		if (stringPart[0].RawType == "num" && stringPart[2].RawType == "num") {
+			month = stringPart[0].Value;
+			day = 1;
+			year = stringPart[2].Value;
+			bFound = true;
+		}
+	}
+	else {
+		var count=0;
+		while (count<stringPart.Length && !bFound) {
+			if (stringPart[count].LogType == "month") {
+				bFound = true;
+				month = _IsMonthName(stringPart[count].Value) + 1;
+			}
+			count++;
+		}
+		if (bFound) {
+			bFound = false;
+			count=0;
+			while (count<stringPart.Length && !bFound) {
+				if (stringPart[count].RawType == "num") {day = stringPart[count].Value; bFound = true;}
+				count++;
+			}
+			if (bFound) {
+				bFound = false;
+				while (count<stringPart.Length && !bFound) {
+					if (stringPart[count].RawType == "num") {year = stringPart[count].Value; bFound = true;}
+					count++;
+				}
+				if (!bFound && day > 31) {year = day; day = 1; bFound = true;}
+			}
+		}
+	}
+	if (bFound) {
+		if (month*1 < 1 || month*1 > 12 || day*1 < 1 || day*1 > 31) return false;
+		if (year*1 < 30) year = year*1 + 2000;
+		else if (year*1 < 100) year = year*1 + 1900;
+		stringPart.Value = (Date.parse(month + "/" + day + "/" + year)/86400000);
+		return true;
+	}
+	return false;
+}
+function _MonthNamesArray() {
+	this[0]="January";
+	this[1]="February";
+	this[2]="March";
+	this[3]="April";
+	this[4]="May";
+	this[5]="June";
+	this[6]="July";
+	this[7]="August";
+	this[8]="September";
+	this[9]="October";
+	this[10]="November";
+	this[11]="December";
+}
+function _MatchNumberString(stringPart) {
+	var dash = -1;
+	var lparen = -1;
+	var rparen = -1;
+	var dec = -1;
+	var preDec = -1;
+	var postDec = -1;
+	var percent = -1;
+	var length = stringPart.Length;
+	for (var count=0; count<length; count++) {
+		if (stringPart[count].RawType == "-") {if (dash != -1) return false; dash = count;}
+		else if (stringPart[count].RawType == "(") {if (lparen != -1) return false; lparen = count;}
+		else if (stringPart[count].RawType == ")") {if (rparen != -1 || lparen == -1) return false; rparen = count;}
+		else if (stringPart[count].RawType == ".") {dec = count;}
+		else if (stringPart[count].RawType == "num") {
+			if (preDec == -1 && dec == -1) preDec = count;
+			else if (postDec == -1 && dec != -1) postDec = count;
+		}
+		else if (stringPart[count].RawType == "%") {if (percent != -1) return false; percent = count;}
+		else if (stringPart[count].RawType != "," && stringPart[count].RawType != " " && stringPart[count].LogType != "cur") return false;
+	}
+	if (preDec != -1 || postDec != -1) {
+		var preDecNum = "";
+		var postDecNum = "";
+		if (preDec != -1) {
+			if (dec == -1) dec = length;
+			preDecNum = stringPart[preDec].Value;
+			for (count=preDec+1; count<dec; count++) {
+				if (stringPart[count].RawType == "num") preDecNum = "" + preDecNum + stringPart[count].Value;
+			}
+		}
+		if (postDec != -1) {
+			for (count=postDec; count<length; count++) {
+				if (stringPart[count].RawType == "num") postDecNum = "" + postDecNum + stringPart[count].Value;
+			}
+		}
+		var num;
+		if (preDec != -1) num = preDecNum;
+		else num = "0";
+		if (postDec != -1) num = num + "." + postDecNum;
+		if (dash != -1 || (lparen != -1 && rparen != -1)) num = "-" + num;
+		if (percent != -1) num /= 100;
+		stringPart.Value = num*1;
+		return true;
+	}
+}
+function _MatchTimeString(stringPart) {
+	var string;
+	var AmPm = "";
+	var hour;
+	var minute = 0;
+	var second = 0;
+	var length = stringPart.Length;
+	if (stringPart[0].RawType != "num") return false;
+	if (length >= 2) {
+		string = stringPart[length-1].Value.toLowerCase();
+		if (string == "am" || string == "pm") {AmPm = string; length -= 1;}
+		else if (length >= 5 && string == "." && stringPart[length-2].Value.toLowerCase() == "m" && stringPart[length-3].Value.toLowerCase() == ".") {
+			if (stringPart[length-4].Value.toLowerCase() == "a") {AmPm = "am"; length -= 4;}
+			else if (stringPart[length-4].Value.toLowerCase() == "p") {AmPm = "pm"; length -= 4;}
+		}
+	}
+	hour = stringPart[0].Value*1;
+	if (hour == 12 && AmPm == "am") hour = 0;
+	else if (hour != 12 && AmPm == "pm") hour += 12;
+	if (hour < 0 || hour >= 24) return false;
+	if ((length == 1 || (length == 2 && stringPart[1].Value == " ")) && AmPm != "") {}
+	else if (length >= 3 && stringPart[1].Value == ":" && stringPart[2].RawType == "num") {
+		if (length == 4 && stringPart[3].Value != " ") return false;
+		if (length >= 5 && (stringPart[3].Value != ":" || stringPart[4].RawType != "num")) return false;
+		if (length == 6 && stringPart[5].Value != " ") return false;
+		minute = stringPart[2].Value*1;
+		if (minute < 0 || minute >= 60) return false;
+		if (length >= 5) {
+			second = stringPart[4].Value*1;
+			if (second < 0 || second >= 60) return false;
+		}
+	}
+	else return false;
+	stringPart.Value = (((((hour*60)+minute)*60)+second)/86400);
+	return true;
+}
+function _IsNumericChar(string) {
+	if (string.charAt(0) >= '0' && string.charAt(0) <= '9') return true;
+	return false;
+}
+function _IsAlphaChar(string) {
+	var char1 = string.charAt(0);
+	if ((char1 >= 'A' && char1 <= 'Z')||(char1 >= 'a' && char1 <= 'z')) return true;
+	else if (char1 == 'ƒ' || char1 == 'Š' || char1 == 'Œ' || char1 == 'š' || char1 == 'œ' || char1 == 'Ÿ') return true;
+	else if (char1 > 'À' && char1 != '×' && char1 != '÷') return true;
+	return false;
+}
+function _IsMonthName(string) {
+	var string1 = string.toLowerCase();
+	var month = -1;
+	var monthNames = new _MonthNamesArray();
+	for (var count=0; count<12 && month==-1; count++) {
+		if (monthNames[count].toLowerCase() == string1) month = count;
+	}
+	return(month);
+}
+function _GetString(number) {
+	return(""+number);
+}
+function _ObjInfo() {
+	this.bHasData = false;
+	this.Number = 0;
+	this.Value = "";
+	this.Type = "G";
+	this.Format = _Format_Gen;
+	this.bHasCalc = false;
+	this.Help = "";
+	this.bMustFill = false;
+	this.bMatchType = false;
+	this.MinValue = "";
+	this.MaxValue = "";
+	this.OnValue = "";
+	this.OffValue = "";
+	this.bCanBeFilled = true;
+	this.bOverride = false;
+	this.bOverridden = false;
+	this.bSaved = true;
+	this.bNumber = false;
+	this.ObjectType = "fill";
+	this.Group = "";
+	this.bHasBeenFilled = false;
+	this.Update = _General_Update;
+	this.NextTab = "";
+	this.PrevTab = "";
+}
+function _General_Update() {
+	return;
+}
+function _CheckValidations(name) {
+	if (!_CheckMustBeFilled(name)) return false;
+	return true;
+}
+function _CheckMustBeFilled(name) {
+	var sError = "The field named \""+name+"\" should be filled in.";
+	var sAllow = "\rAllow it to be empty?";
+	if (_formVars[name].bCanBeFilled && _formVars[name].bMustFill && !_formVars[name].bOverridden) {
+		if (_formVars[name].Value == "") {
+			if (_formVars[name].bOverride) {
+				if (confirm(sError+sAllow)) {
+					_formVars[name].bOverridden = true;
+					return true;
+				}
+			}
+			else{
+				alert(sError);
+			}
+			if(_formVars[name].ObjectType == "fill" || _formVars[name].ObjectType == "select") {
+				var obj = _GetObject(name);
+				obj.focus();
+				obj.select();
+			}
+			return false;
+		}
+	}
+	return true;
+}
+function _onFocus(object) {
+	if (bInitInProgress) return true;
+	if(_formVars[object.name].bSaved && _formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+		object.value = _formVars[object.name].Value;
+	}
+	_formVars[object.name].bSaved = false;
+	self.status=_formVars[object.name].Help;
+	return true;
+}
+function _onBlur(object) {
+	if (bInitInProgress || bUnloaded) return true;
+	if (object.value == _formVars[object.name].Value || _formVars[object.name].bSaved == true) {
+		if(_formVars[object.name].ObjectType == "fill" && _formVars[object.name].bHasData) {
+			if (_formVars[object.name].bNumber) object.value = _formVars[object.name].Format(_formVars[object.name]);
+		}
+		_formVars[object.name].bSaved = true;
+	}
+	if (_formVars[object.name].Help != "") self.status="";
+	return true;
+}
+function _Format_Gen(object) {
+	return(object.Value);
+}
+function _Format_NG(object) {
+	return("" + object.Number);
+}
+function _Format_N2(object) {
+	var string = "" + (Math.round(object.Number*100)/100);
+	if (string.indexOf(".") == -1) string += ".00";
+	else string += "0";
+	if (string.substring(0, 1) == ".")
+		string = "0" + string;
+	else if (string.substring(0, 2) == "-.")
+		string = "-0" + string.substring(1, string.length);
+	string = string.substring(0, string.indexOf(".")+3);
+	return(string);
+}
+function _Format_DS(object) {
+	var tempDate = new Date(2000,1,1);
+	var offset = 1900;
+	if (tempDate.getYear() == 2000) offset = 0;
+	tempDate.setTime(object.Number * 86400000);
+	var year = tempDate.getYear();
+	if (year < 100 || offset == 1900) year += 1900;
+	var month = tempDate.getMonth()+1;
+	var day = tempDate.getDate();
+	year = year % 100;
+	if (year <= 9) year = "0" + year;
+	return(month + "/" + day + "/" + year);
+}
+// -->
+</SCRIPT>
+&nbsp<BR>
+<DIV ID="IELAYER" style="visibility:show;">
+<LAYER ID=IELAYER visibility=hide;>
+<FORM NAME="IEFORM">
+<DIV ID="Lyr1" style="position:absolute; left:0.04in; top:0.03in; width:3.06in; height:0.38in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.13in; line-height: 1;"><FONT style="font-family:Arial; font-size:14pt;" COLOR="#000000"><B></B><B>Training Class Attendance </B></FONT></DIV>
+<INPUT TYPE="TEXT" NAME="MemberNumber" SIZE=19 TABINDEX="1" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.38in; top:1.00in; width:1.61in; height:0.19in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr2" style="position:absolute; left:0.04in; top:0.97in; width:1.34in; height:0.23in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.04in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Member Number</FONT></DIV>
+<DIV ID="Lyr3" style="position:absolute; left:0.04in; top:1.44in; width:1.39in; height:0.35in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.01in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Class Meeting Date MMDDYYYY</FONT></DIV>
+<DIV ID="Lyr4" style="position:absolute; left:0.04in; top:2.08in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Course Taken:</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="Hours" SIZE=12 TABINDEX="2" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.41in; top:4.05in; width:1.01in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr5" style="position:absolute; left:0.04in; top:4.01in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Hours</FONT></DIV>
+<DIV ID="Lyr6" style="position:absolute; left:0.04in; top:4.67in; width:1.05in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Comment / Note</FONT></DIV>
+<INPUT TYPE="TEXT" NAME="FillText7" SIZE=34 TABINDEX="3" onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.36in; top:4.73in; width:2.91in; height:0.18in; border-color: #000000; border-style: solid; border-width: 1pt; border-left-width: 0px; border-left-style: none; border-right-width: 0px; border-right-style: none; border-top-width: 0px; border-top-style: none; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+<DIV ID="Lyr7" style="position:absolute; left:3.45in; top:0.01in; width:4.57in; height:0.95in;">
+<IMG SRC="./Training_Files/IMG_1.JPG" height="89" width="438">
+</DIV>
+<DIV ID="Lyr8" style="position:absolute; left:0.39in; top:2.50in; width:0.81in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ACT Mod 1</FONT></DIV>
+<DIV ID="Lyr9" style="position:absolute; left:1.51in; top:2.50in; width:0.84in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ACT Mod 2</FONT></DIV>
+<DIV ID="Lyr10" style="position:absolute; left:2.61in; top:2.50in; width:0.82in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ACT Mod 3</FONT></DIV>
+<DIV ID="Lyr11" style="position:absolute; left:3.76in; top:2.50in; width:0.76in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ACT Mod 4</FONT></DIV>
+<DIV ID="Lyr12" style="position:absolute; left:0.39in; top:2.92in; width:0.91in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV Resume</FONT></DIV>
+<DIV ID="Lyr13" style="position:absolute; left:4.82in; top:2.50in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ACT Mod 5</FONT></DIV>
+<INPUT TYPE="CHECKBOX" NAME="ACT1" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="4" style="position:absolute; left:0.16in; top:2.52in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ACT2" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="5" style="position:absolute; left:1.30in; top:2.52in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ACT3" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="6" style="position:absolute; left:2.41in; top:2.52in; width:0.17in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ACT4" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="7" style="position:absolute; left:3.53in; top:2.52in; width:0.17in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ACT5" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="8" style="position:absolute; left:4.63in; top:2.52in; width:0.18in; height:0.18in;"
+>
+<DIV ID="Lyr14" style="position:absolute; left:1.52in; top:2.92in; width:0.85in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV C.A.R.s</FONT></DIV>
+<DIV ID="Lyr15" style="position:absolute; left:2.61in; top:2.92in; width:1.04in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV Marketing</FONT></DIV>
+<DIV ID="Lyr16" style="position:absolute; left:3.79in; top:2.92in; width:0.93in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV Interview</FONT></DIV>
+<DIV ID="Lyr17" style="position:absolute; left:5.06in; top:2.92in; width:0.51in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Improv</FONT></DIV>
+<DIV ID="Lyr18" style="position:absolute; left:5.83in; top:2.92in; width:0.84in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV Improv</FONT></DIV>
+<DIV ID="Lyr19" style="position:absolute; left:0.38in; top:3.39in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Mock Interview</FONT></DIV>
+<DIV ID="Lyr20" style="position:absolute; left:1.54in; top:3.38in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">TTT-ACT</FONT></DIV>
+<DIV ID="Lyr21" style="position:absolute; left:2.39in; top:3.40in; width:1.01in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">ADV LinkedIn</FONT></DIV>
+<DIV ID="Lyr22" style="position:absolute; left:3.54in; top:3.40in; width:1.55in; height:0.26in; border-color: #000000; border-style: solid; border-width: 1pt; border-style: none; padding: 1px; padding-top:0.07in; line-height: 1;"><FONT style="font-family:Arial; font-size:10pt;" COLOR="#000000">Outside Training</FONT></DIV>
+<INPUT TYPE="CHECKBOX" NAME="AResume" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="9" style="position:absolute; left:0.15in; top:2.94in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ACAR" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="10" style="position:absolute; left:1.29in; top:2.94in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="AMarketing" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="11" style="position:absolute; left:2.39in; top:2.94in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="AInterview" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="12" style="position:absolute; left:3.58in; top:2.94in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="Improv" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="13" style="position:absolute; left:4.85in; top:2.94in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="AImprov" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="14" style="position:absolute; left:5.63in; top:2.94in; width:0.17in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="Mock" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="15" style="position:absolute; left:0.13in; top:3.43in; width:0.18in; height:0.17in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="TTT" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="16" style="position:absolute; left:1.34in; top:3.43in; width:0.17in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="ALink" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="17" style="position:absolute; left:2.18in; top:3.44in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="CHECKBOX" NAME="OTrain" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" TABINDEX="18" style="position:absolute; left:3.32in; top:3.43in; width:0.18in; height:0.18in;"
+>
+<INPUT TYPE="TEXT" NAME="MDate" SIZE=24 TABINDEX="19" MAXLENGTH=8 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)" style="position:absolute; left:1.46in; top:1.48in; width:2.08in; height:0.26in; background-color: #FFFFFF; border-color: #000000; border-style: solid; border-width: 1pt; padding: 1px; line-height: 1; font-family:Times New Roman; font-size:10pt;">
+</FORM>
+</LAYER>
+</DIV>
+<DIV ID="NNLAYER" style="visibility:hidden">
+<LAYER ID=NNLAYER>
+<LAYER left=0 top=13 width=298 height=29>
+<DIV ID="Lyr23" style="position:absolute; left:0; top:0; width:298px; height:29px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:14pt; line-height:21px;" COLOR="#000000"><B></B><B>Training Class Attendance </B></FONT></P></DIV></LAYER>
+<LAYER ID=LyrMemberNumber left=129 top=88 width=154 height=26>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MemberNumber" SIZE=12 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=0 top=95 width=133 height=23>
+<DIV ID="Lyr24" style="position:absolute; left:0; top:0; width:133px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Member Number</FONT></P></DIV></LAYER>
+<LAYER left=0 top=136 width=137 height=39>
+<DIV ID="Lyr25" style="position:absolute; left:0; top:0; width:137px; height:39px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Class Meeting Date MMDDYYYY</FONT></P></DIV></LAYER>
+<LAYER left=0 top=204 width=101 height=24>
+<DIV ID="Lyr26" style="position:absolute; left:0; top:0; width:101px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Course Taken:</FONT></P></DIV></LAYER>
+<LAYER ID=LyrHours left=132 top=381 width=96 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="Hours" SIZE=7 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=0 top=390 width=101 height=23>
+<DIV ID="Lyr27" style="position:absolute; left:0; top:0; width:101px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Hours</FONT></P></DIV></LAYER>
+<LAYER left=0 top=452 width=105 height=23>
+<DIV ID="Lyr28" style="position:absolute; left:0; top:0; width:105px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Comment / Note</FONT></P></DIV></LAYER>
+<LAYER ID=LyrFillText7 left=129 top=446 width=277 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="FillText7" SIZE=23 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+<LAYER left=327 top=1 width=439 height=91>
+<IMG SRC="./Training_Files/IMG_1.JPG" height="89" width="438">
+</LAYER>
+<LAYER left=31 top=245 width=82 height=23>
+<DIV ID="Lyr29" style="position:absolute; left:0; top:0; width:82px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ACT Mod 1</FONT></P></DIV></LAYER>
+<LAYER left=140 top=245 width=85 height=23>
+<DIV ID="Lyr30" style="position:absolute; left:0; top:0; width:85px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ACT Mod 2</FONT></P></DIV></LAYER>
+<LAYER left=246 top=245 width=83 height=23>
+<DIV ID="Lyr31" style="position:absolute; left:0; top:0; width:83px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ACT Mod 3</FONT></P></DIV></LAYER>
+<LAYER left=355 top=245 width=78 height=23>
+<DIV ID="Lyr32" style="position:absolute; left:0; top:0; width:78px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ACT Mod 4</FONT></P></DIV></LAYER>
+<LAYER left=32 top=284 width=91 height=24>
+<DIV ID="Lyr33" style="position:absolute; left:0; top:0; width:91px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV Resume</FONT></P></DIV></LAYER>
+<LAYER left=457 top=245 width=101 height=23>
+<DIV ID="Lyr34" style="position:absolute; left:0; top:0; width:101px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ACT Mod 5</FONT></P></DIV></LAYER>
+<LAYER ID=LyrACT1 left=11 top=242 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACT1" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrACT2 left=121 top=242 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACT2" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrACT3 left=227 top=242 width=16 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACT3" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrACT4 left=335 top=242 width=16 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACT4" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrACT5 left=440 top=242 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACT5" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER left=140 top=284 width=87 height=24>
+<DIV ID="Lyr35" style="position:absolute; left:0; top:0; width:87px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV C.A.R.s</FONT></P></DIV></LAYER>
+<LAYER left=246 top=284 width=104 height=24>
+<DIV ID="Lyr36" style="position:absolute; left:0; top:0; width:104px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV Marketing</FONT></P></DIV></LAYER>
+<LAYER left=358 top=284 width=94 height=24>
+<DIV ID="Lyr37" style="position:absolute; left:0; top:0; width:94px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV Interview</FONT></P></DIV></LAYER>
+<LAYER left=480 top=284 width=54 height=24>
+<DIV ID="Lyr38" style="position:absolute; left:0; top:0; width:54px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Improv</FONT></P></DIV></LAYER>
+<LAYER left=554 top=284 width=86 height=24>
+<DIV ID="Lyr39" style="position:absolute; left:0; top:0; width:86px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV Improv</FONT></P></DIV></LAYER>
+<LAYER left=31 top=330 width=101 height=23>
+<DIV ID="Lyr40" style="position:absolute; left:0; top:0; width:101px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Mock Interview</FONT></P></DIV></LAYER>
+<LAYER left=143 top=329 width=101 height=23>
+<DIV ID="Lyr41" style="position:absolute; left:0; top:0; width:101px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">TTT-ACT</FONT></P></DIV></LAYER>
+<LAYER left=223 top=330 width=101 height=24>
+<DIV ID="Lyr42" style="position:absolute; left:0; top:0; width:101px; height:24px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">ADV LinkedIn</FONT></P></DIV></LAYER>
+<LAYER left=334 top=331 width=154 height=23>
+<DIV ID="Lyr43" style="position:absolute; left:0; top:0; width:154px; height:23px; border-color: #000000; border-style: solid; border-width: 1px; border-style: none;"><P align="left"><FONT style="font-family:Arial; font-size:10pt; line-height:15px;" COLOR="#000000">Outside Training</FONT></P></DIV></LAYER>
+<LAYER ID=LyrAResume left=10 top=282 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="AResume" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrACAR left=120 top=282 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ACAR" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrAMarketing left=225 top=282 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="AMarketing" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrAInterview left=340 top=282 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="AInterview" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrImprov left=462 top=282 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="Improv" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrAImprov left=536 top=282 width=16 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="AImprov" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrMock left=8 top=329 width=17 height=16>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="Mock" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrTTT left=125 top=329 width=16 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="TTT" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrALink left=205 top=330 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="ALink" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrOTrain left=315 top=329 width=17 height=17>
+<FORM onSubmit="return false">
+<INPUT TYPE="CHECKBOX" NAME="OTrain" VALUE="1" onClick="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></LAYER>
+<LAYER ID=LyrMDate left=136 top=142 width=200 height=25>
+<font style="font-family:Times New Roman; font-size:10pt;"><FORM onSubmit="return false">
+<INPUT TYPE="TEXT" NAME="MDate" SIZE=16 MAXLENGTH=8 onChange="_ComputeForm(this)" onFocus="_onFocus(this)" onBlur="_onBlur(this)""></FORM></FONT></LAYER>
+</LAYER>
+</DIV>
+<DIV ID="IEFORMLAYER" style="position:absolute; left:0.5in; top:5.35in; visibility:visible;">
+<LAYER ID=FORMLAYER left=48 top=513 visibility=hide>
+<FORM METHOD="GET" ACTION="" NAME="OMNIFORM" onSubmit="return _OnSubmit(this)" OnReset="return _OnReset(this)">
+<INPUT TYPE="HIDDEN" NAME="MemberNumber">
+<INPUT TYPE="HIDDEN" NAME="Hours">
+<INPUT TYPE="HIDDEN" NAME="FillText7">
+<INPUT TYPE="HIDDEN" NAME="ACT1">
+<INPUT TYPE="HIDDEN" NAME="ACT2">
+<INPUT TYPE="HIDDEN" NAME="ACT3">
+<INPUT TYPE="HIDDEN" NAME="ACT4">
+<INPUT TYPE="HIDDEN" NAME="ACT5">
+<INPUT TYPE="HIDDEN" NAME="AResume">
+<INPUT TYPE="HIDDEN" NAME="ACAR">
+<INPUT TYPE="HIDDEN" NAME="AMarketing">
+<INPUT TYPE="HIDDEN" NAME="AInterview">
+<INPUT TYPE="HIDDEN" NAME="Improv">
+<INPUT TYPE="HIDDEN" NAME="AImprov">
+<INPUT TYPE="HIDDEN" NAME="Mock">
+<INPUT TYPE="HIDDEN" NAME="TTT">
+<INPUT TYPE="HIDDEN" NAME="ALink">
+<INPUT TYPE="HIDDEN" NAME="OTrain">
+<INPUT TYPE="HIDDEN" NAME="MDate">
+<P><INPUT TYPE="SUBMIT" VALUE="Submit Form" TABINDEX="20">
+<INPUT TYPE="RESET" VALUE="Clear Form" TABINDEX="21">
+</FORM>
+</LAYER>
+</DIV>
+
+</BODY>
+</HTML>

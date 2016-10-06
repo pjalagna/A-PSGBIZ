@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="p1">what she said makes sense</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<p id="dec"></p>
+
+<script>
+function myFunction() {
+   var out = '';
+   var t1 = "poiuytrewql.kjhg fdsamnbvcxz";
+   var t2a = "qazwsxedcrfvt_gbyhnu.jmikolp";
+   var t2 = t2a + t2a + t2a;
+   lstr = document.getElementById("p1").innerHTML;
+for (i=0 ; i < lstr.length; i++) {
+//alert("i =(" + i + ")" );
+   var ci = lstr.substr(i,1);
+//alert("ci =(" + ci + ")" );
+   var t1g = t1.indexOf(ci)  ;
+//alert("t1g =(" + t1g + ")" );
+   var t1ga = t1g + i;
+//alert("t1ga =(" + t1ga + ")" );
+   var t2m = t2.substr(t1ga,1);
+//alert("t2m =(" + t2m + ")" );
+
+out = out + t2m;
+//alert("out =(" + out + ")" );
+} //end for
+document.getElementById("demo").innerHTML = out;
+// decode out into ele-dec
+var dout = '';
+for (i=0 ; i < out.length; i++) {
+var ini = out.substr(i,1);
+//alert("ini =(" + ini + ")" );
+var t2i = t2.indexOf(ini);
+//alert("t2i =(" + t2i + ")" );
+var t2ia = t2i - i;
+//alert("t2ia =(" + t2ia + ")" );
+var t2aa =  (t2ia + t1.length) % t1.length ;
+//alert("t2aa =(" + t2aa + ")" );
+var t1o = t1.substr(t2ia,1);
+//alert("t1o =(" + t1o + ")" );
+dout = dout + t1o;
+//alert("dout =(" + dout + ")" );
+} // end for
+document.getElementById('dec').innerHTML = dout;
+}
+</script>
+
+</body>
+</html>

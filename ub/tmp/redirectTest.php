@@ -1,0 +1,9 @@
+<?php
+// file redirectTest.php
+include_once '../plib/Redirect.php';
+include_once '../plib/unpack.php';
+stick($Pa,$Px);
+//doRe($Pa,$Px);
+print("done");
+exit;
+?>

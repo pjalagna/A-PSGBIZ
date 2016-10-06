@@ -1,0 +1,42 @@
+<?php
+// file txt test
+// 
+print('<html><head><title> txt test </title></head><body>');
+$f1 = <<< MF
+<table border='3'>
+  <tr><td name='td1' id='td1'> inserted table </td></tr>
+</table>
+MF
+;
+print($f1);
+$f2 = <<< MF
+<table border='3'>
+  <tr><td name='td2' id='td2'> inserted inserted table </td></tr>
+</table>
+MF
+;
+$f3 = <<< MF
+<table border='3'> <tr><td name='td2' id='td2'> inserted table table </td></tr> </table>
+MF
+; // no cr
+$f3a = <<< MF
+<table border='3'> 
+<tr><td name='td2' id='td2'> inserted table table </td></tr> </table>
+MF
+; // one cr
+// document.getElementById('td1').innerHTML = 'george'; // works
+// document.getElementById('td1').innerHTML = '<br/>george'; // works
+// document.getElementById('td1').innerHTML = '$f2'; // no
+// document.getElementById('td1').innerHTML = '$f3'; //no
+// document.getElementById('td1').innerHTML = "$f3"; // works
+// document.getElementById('td1').innerHTML = "$f3a"; // no
+$tt = <<< GG
+<script>
+document.getElementById('td1').innerHTML = "$f2";
+
+</script>
+GG
+;
+print($tt);
+print('</body></html>');
+?>

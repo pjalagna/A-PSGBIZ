@@ -1,0 +1,7 @@
+[AUTOFILLIST]
+"Personal Referral"
+"HR or Internal Recruiter"
+"Networking"
+"Recruiter / Headhunter"
+"Online Application"
+"Other"

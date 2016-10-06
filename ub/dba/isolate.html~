@@ -1,0 +1,83 @@
+<html>
+    <head> <title> adminIn </title>
+    <!-- file adminInTry.html
+DOES NOT SAVE
+         intake page for source html php pages to be saved into a database
+    -->
+    
+
+
+    <script type="text/javascript">
+function tx(strx)
+{
+alert("tx1");
+  // added "/" conversion
+  var str_esc=escape(strx);
+//alert("tx2 (" + str_esc + ")");
+  var res = str_esc.replace(/%/gi, "^");
+  // replace / with ^2F
+//alert("tx3 (" + res + ")");
+  var ss = '';
+  var out = '';
+  for ( i = 0; i < res.length; i++)
+      {
+        ss = res.substr(i,1)
+        if (ss == '/')
+        { 
+          out = out + '^2F';
+        } else {
+          out = out + ss;
+        } // endif
+  } // forend
+alert("tx4 (" + out + ")");
+var pos = out.indexOf("^0A");
+//alert("tx5 (" + pos + ")");
+  while (pos != -1) 
+  {
+     out = out.replace("^0A","^20");
+     pos = out.indexOf("^0A");
+  } // wend
+//alert("tx6 (" + out + ")");
+  return(out);
+} 
+
+    function gotx() {
+alert("here at gotx");
+        // facade for go//document.getElementById("go").innerHTML
+alert("here at gotx4(" + document.getElementById("cfn").value + ")" );
+       document.getElementById("sho").innerHTML = tx(document.getElementById("cfn").value);
+alert("here at gotx2(" + document.getElementById("sho").innerHTML + ")" );
+alert("here at gotx1");
+        // show what you did
+        document.getElementById("cfn").value = document.getElementById("sho").innerHTML;
+alert("here at gotx3(" + document.getElementById("sho").innerHTML + ")" );
+        }
+    </script>
+
+    </head>
+    <body>
+       <form name='f1' action='nowhere.php' method='GET'>
+            <table id='t1' name='t1' border='3'>
+               <tr> <td>  </td> <td>  </td><td> 
+                    <h2><center> Admin Input </center></h2>
+               </td> <td>  </td><td>  </td> </tr>
+               <tr> <td> User: </td> <td> 
+                                     <input type='text' name='user' id='user'/>
+                         </td><td>  </td> <td> Sid: </td><td> 
+                                     <input type='text' name='sid' id='sid'/>
+               </td> </tr>
+               <tr> <td>  </td> <td> File Name: </td> <td> 
+                                    <center> <input type='text' name='fn' id='fn'/> </center>
+               </td><td>  </td><td>  </td> </tr>
+               <tr> <td>  </td> <td>  </td><td> 
+                                     <textarea name='cfn' id='cfn' cols='40' rows='10'> </textarea>
+               </td> <td>  </td><td>  </td> </tr>
+               <tr> <td> 
+                                     <input type='button' name='go' id='go' value='process'  onclick=gotx() />
+               </td> <td>  </td><td>  </td> <td>  </td><td>  </td> </tr>
+            </table>
+          </form>
+        <div name='sho' id='sho'> ..</div>
+
+    </body>
+</html>

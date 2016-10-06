@@ -1,0 +1,64 @@
+<?php
+// login process
+// hskp 
+// -- motivated SID garbage collection
+// unpack
+// verify all required are given else [ "required fields missing" ; goto login.html ]
+// verify(uname,pwd) else [ "uname pwd login error" ; goto login.html ]
+// getGP
+// gen SID
+// stickNgo(GP)
+// -----------------------------------------------------------
+//  includes
+include_once '../plib/unpack.php';
+include_once '../plib/ixxMS.PHP';
+// load all functions from db via fuse
+// verify all required are given else [ "required fields missing" ; goto login.html ]
+/* skip for now
+if (getPAPX('rqd',$Pa,$Px) != 'ok')
+{
+    list($Pa,$Px) = writePAPX('msg','some-required-fields-are-missing',$Pa,$Px);
+    list($Pa,$Px) = writePAPX('to','login.html',$Pa,$Px);
+    include_once '../plib/Redirect.php';
+    doGoto($Pa,$Px);
+    exit;
+} // all rqd
+*/
+// verify(uname,pwd) else [ "uname pwd login error" ; goto login.html ]
+include_once '../ulib/verifyU.php' ;
+if ( vU( getPAPX('uname',$Pa,$Px),getPAPX('upwd',$Pa,$Px) )  != 'ok')
+{
+    list($Pa,$Px) = writePAPX('msg','User-Name and Password pair-do-NOT-match',$Pa,$Px);
+    list($Pa,$Px) = writePAPX('back','login.html',$Pa,$Px);
+    list($Pa,$Px) = writePAPX('to','errorRead.php',$Pa,$Px);
+    include_once '../plib/Redirect.php';
+    doGoto($Pa,$Px);
+    exit;
+} // all vU
+
+
+
+// gen SID
+include_once '../plib/ixxMS.PHP';
+include_once '../ulib/dbc.PHP';
+$dbh = openDB($dbna, $una, $pwd); 
+$SID = getIX($dbh);
+list($Pa,$Px) = writePAPX('SID',$SID,$Pa,$Px);
+// session date
+list($Pa,$Px) = writePAPX('SID-DT',getdate('wday'),$Pa,$Px);
+print("<br /> SID=(" . getPAPX($SID,$Pa,$Px)  . ")" );
+// getGP
+include_once '../ulib/getGP.php' ;
+$gp = SFgetGP($dbh,getPAPX('uname',$Pa,$Px));
+print('<br/>gp=(' . $gp . ")" );
+list($Pa,$Px) = writePAPX('gp',$gp,$Pa,$Px);
+// stickNgo(GP)
+include_once '../plib/Redirect.php';
+stickNgo($dbh, $Pa, $Px);
+print("<br />nop=(" . $SID . ")" );
+;
+exit;
+
+
+
+?>

@@ -1,0 +1,9 @@
+<?php
+// file nowDB.php
+// unpacks and dumps parameters
+// includes
+
+// unpack viz db
+include_once '../plib/ufuse.php';
+fuse('unpackNdump');
+?>

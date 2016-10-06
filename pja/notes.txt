@@ -1,0 +1,10 @@
+/* 
+what works
+- in php section
+-- can i fuse an include statment that points to a physical file
+-- can i fuse php code
+-- can i fill php code
+-- can i fill a var with html code
+-- can i fill a var with js code
+*/
+

@@ -1,0 +1,42 @@
+<html>
+    <head> <title> adminIn </title>
+    <!-- file adminIn.html
+         intake page for source html php pages to be saved into a database
+    -->
+    <script type="text/javascript" src="txjs.js"></script>
+    <script type="text/javascript">
+    function gotx() {
+// alert("here at gotx");
+        // facade to install tx translation cfn 
+        document.getElementById("cfn").value = tx(document.getElementById("cfn").value);
+        // show what you did
+        document.getElementById("sho").innerHTML = document.getElementById("cfn").value;
+// alert("here at gotx(" + document.getElementById("sho").innerHTML + ")" );
+        }
+    </script>
+    </head>
+    <body>
+        <form name='f1' id='f1' action='adminIn.php' method='POST'>
+            <table id='t1' name='t1' border='3'>
+               <tr> <td>  </td> <td>  </td><td> 
+                    <h2><center> Admin Input </center></h2>
+               </td> <td>  </td><td>  </td> </tr>
+               <tr> <td> User: </td> <td> 
+                                     <input type='text' name='user' id='user'/>
+                         </td><td>  </td> <td> Sid: </td><td> 
+                                     <input type='text' name='sid' id='sid'/>
+               </td> </tr>
+               <tr> <td>  </td> <td> File Name: </td> <td> 
+                                    <center> <input type='text' name='fn' id='fn'/> </center>
+               </td><td>  </td><td>  </td> </tr>
+               <tr> <td>  </td> <td>  </td><td> 
+                                     <textarea name='cfn' id='cfn' cols='40' rows='10'> </textarea>
+               </td> <td>  </td><td>  </td> </tr>
+               <tr> <td> 
+                                     <input type='submit' name='go' id='go' value='process'  onclick=gotx() />
+               </td> <td>  </td><td>  </td> <td>  </td><td>  </td> </tr>
+            </table>
+        </form>
+        <div name='sho' id='sho'> </div>
+    </body>
+</html>

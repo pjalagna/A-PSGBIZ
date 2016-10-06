@@ -1,0 +1,45 @@
+<?PHP
+// TCVR2.PHP
+// take in TCVR and cmd
+// do command and send to TCVR
+include_once "../plib/unpack.php";
+include_once "../plib/Redirect.php";
+include_once '../plib/ixxMS.PHP';
+include_once '../ulib/dbc.PHP';
+$dbh = openDB($dbna, $una, $pwd);
+// on cmd
+if (getPAPX('cmd',$Pa,$Px) == 'read')
+{
+   $ans = seekTCVR($dbh, getPAPX('T',$Pa,$Px),getPAPX('C',$Pa,$Px),getPAPX('V',$Pa,$Px),getPAPX('R',$Pa,$Px));
+
+} elseif (getPAPX('cmd',$Pa,$Px) == 'genID')
+{
+  $ans = array();
+  array_push($ans, array() ) ;
+  array_push($ans[0], getIX($dbh) ) ;
+} elseif (getPAPX('cmd',$Pa,$Px) == 'Write') {
+  writeTCVR($dbh, getPAPX('T',$Pa,$Px),getPAPX('C',$Pa,$Px),getPAPX('V',$Pa,$Px),getPAPX('R',$Pa,$Px));
+  $ans = array();
+  array_push($ans, array() ) ;
+  array_push($ans[0], "Write DONE" ) ;
+
+}
+   
+$out = '';
+$cmd = getPAPX('cmd',$Pa,$Px);
+print('ans.count=(' . count($ans) . ")<br />" );
+foreach (array_keys($ans) as $i )
+{
+   foreach(array_keys($ans[$i]) as $j)
+   {
+     print('j=(' . $j . ") jv=(" . $ans[$i][$j] . ")<br />" );
+     if ($j != '0') { $out .= '[' . $j . '!' . $ans[$i][$j]  . ']' ; }
+     if ($cmd == 'genID') { $out = "[X!" . $ans[$i][$j] . ']'; }
+   } // j
+} // i
+print('out=(' . $out . ")" );
+list($Pa,$Px) = writePAPX('ans',$out,$Pa,$Px);
+list($Pa,$Px) = writePAPX('to','TCVR.PHP',$Pa,$Px);
+   doRe($Pa,$Px);
+   exit;
+?>

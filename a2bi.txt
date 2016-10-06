@@ -1,0 +1,13 @@
+function a2bi(str_in)
+{
+// js fnction to encode str
+var t1 = "abcdef g.";
+var t2 = " dbacef.g";
+
+str_in = 'gad dad cab';
+i = 0;
+ci = strpos(str_in,i);
+t1g = substr(t1,ci,1);
+t2t1g = substr(t2,t1g,1);
+out = out + t2t1g;
+alert("out=(" + out + ")" );

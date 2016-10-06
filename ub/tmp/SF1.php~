@@ -1,0 +1,33 @@
+<?php
+// file SF1
+// fn fuse(name)
+include_once '../plib/ufuse.php'; // dbh is global
+include_once '../plib/llogg.php';
+function SF1I($element,$Store)
+{
+$dc = fill('justOneLine');
+$fixx = <<< TF
+<!-- proto fix(element,SP name) -- fills from db -->
+<script>
+document.getElementById('$element').innerHTML = '$dc';
+</script>
+<body></html>
+TF
+; 
+return($fixx);
+} // fn SF1I
+function SF1V($element,$Store)
+{
+$dc = fill('justOneLine');
+$fixx = <<< TF
+<!-- proto fix(element,SP name) -- fills from db -->
+<script>
+document.getElementById('$element').value = '$dc';
+</script>
+<body></html>
+TF
+; 
+return($fixx);
+} // fn SF1V
+?>
+
